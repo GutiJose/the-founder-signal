@@ -1,20 +1,33 @@
-// The Founder Signal - lógica del quiz, score y traducciones (EN/ES/PT)
+// The Founder Signal — site pessoal de Jose Gutiérrez
+// Seções: Início · Diagnóstico · Artigos · Sobre (EN/ES/PT)
 
-// ===== 1. Textos de la interfaz =====
+// ===== 1. Textos da interface =====
 const UI = {
   en: {
-    badge: "Free 2-minute diagnostic",
-    heroTitle: "How strong is your startup signal?",
-    heroSubtitle: "Answer 10 quick questions and get an instant score of your startup's stage — plus the 3 things you should focus on next.",
+    navHome: "Home",
+    navQuiz: "Diagnostic",
+    navArticles: "Articles",
+    navAbout: "About",
+    badge: "Strategies for founders & startups",
+    heroTitle: "Real startup strategy, without the glamour",
+    heroSubtitle: "I'm Jose Gutiérrez — serial entrepreneur since 2007, co-founder with an exit (Lincon Health), ex-partner at ACE Ventures and partner at Wellbe. Here I share what actually works when building, growing and selling a startup.",
+    ctaQuiz: "Take the free diagnostic",
+    ctaArticles: "Read the articles",
+    feat1Title: "Articles from the trenches",
+    feat1Text: "Strategy, fundraising, metrics and pivots — told by someone who lived them, with data and sources.",
+    feat2Title: "2-minute diagnostic",
+    feat2Text: "Answer 10 questions and get a 0–100 score of your startup's stage plus your top 3 priorities.",
+    feat3Title: "Real experience",
+    feat3Text: "From founding to exit: 300+ startups evaluated, corporate venture, healthtech and international markets.",
+    latestTitle: "Latest articles",
+    seeAllArticles: "See all articles",
+    quizBadge: "Free 2-minute diagnostic",
+    quizTitle: "How strong is your startup signal?",
+    quizSubtitle: "Answer 10 quick questions and get an instant score of your startup's stage — plus the 3 things you should focus on next.",
     startBtn: "Get my score",
     heroHint: "No sign-up required · 10 questions · 2 minutes",
-    feat1Title: "Instant score",
-    feat1Text: "A 0–100 score based on the fundamentals investors and accelerators look at.",
-    feat2Title: "Know your stage",
-    feat2Text: "Idea, Validation, Building, Traction or Growth — see exactly where you stand.",
-    feat3Title: "Clear next steps",
-    feat3Text: "Your 3 highest-impact priorities, based on your weakest areas.",
     backBtn: "← Back",
+    backHome: "← Exit quiz",
     resultBadge: "Your Founder Signal",
     focusTitle: "Your top 3 priorities",
     emailTitle: "Want to level up your score?",
@@ -25,23 +38,40 @@ const UI = {
     newsletterLink: "Or follow The Founder Signal newsletter on LinkedIn →",
     retryBtn: "Retake the quiz",
     questionOf: "Question {n} of {total}",
-    pubTitle: "From the newsletter",
-    pubAll: "Read all editions on LinkedIn →",
-    backHome: "← Home"
+    articlesTitle: "Articles",
+    articlesSubtitle: "Originally published in The Founder Signal newsletter. Articles are in Portuguese.",
+    pubAll: "Follow the newsletter on LinkedIn →",
+    backToArticles: "← All articles",
+    articleFooter: "Originally published in The Founder Signal newsletter:",
+    minRead: "min read",
+    aboutTagline: "Serial entrepreneur · Exit as co-founder & COO of Lincon Health · Partner at Wellbe",
+    aboutNewsletter: "Newsletter"
   },
   es: {
-    badge: "Diagnóstico gratis de 2 minutos",
-    heroTitle: "¿Qué tan fuerte es la señal de tu startup?",
-    heroSubtitle: "Responde 10 preguntas rápidas y obtén al instante un score del estadio de tu startup — más las 3 cosas en las que deberías enfocarte.",
+    navHome: "Inicio",
+    navQuiz: "Diagnóstico",
+    navArticles: "Artículos",
+    navAbout: "Sobre mí",
+    badge: "Estrategias para emprendedores y startups",
+    heroTitle: "Estrategia real de startups, sin glamour",
+    heroSubtitle: "Soy Jose Gutiérrez — emprendedor serial desde 2007, cofundador con exit (Lincon Health), ex-socio de ACE Ventures y socio en Wellbe. Aquí comparto lo que de verdad funciona al construir, crecer y vender una startup.",
+    ctaQuiz: "Hacer el diagnóstico gratis",
+    ctaArticles: "Leer los artículos",
+    feat1Title: "Artículos desde la trinchera",
+    feat1Text: "Estrategia, inversión, métricas y pivots — contados por quien los vivió, con datos y fuentes.",
+    feat2Title: "Diagnóstico de 2 minutos",
+    feat2Text: "Responde 10 preguntas y obtén un score de 0–100 de la etapa de tu startup y tus 3 prioridades.",
+    feat3Title: "Experiencia real",
+    feat3Text: "De la fundación al exit: 300+ startups evaluadas, corporate venture, healthtech y mercados internacionales.",
+    latestTitle: "Últimos artículos",
+    seeAllArticles: "Ver todos los artículos",
+    quizBadge: "Diagnóstico gratis de 2 minutos",
+    quizTitle: "¿Qué tan fuerte es la señal de tu startup?",
+    quizSubtitle: "Responde 10 preguntas rápidas y obtén al instante un score de la etapa de tu startup — más las 3 cosas en las que deberías enfocarte.",
     startBtn: "Obtener mi score",
     heroHint: "Sin registro · 10 preguntas · 2 minutos",
-    feat1Title: "Score instantáneo",
-    feat1Text: "Un puntaje de 0–100 basado en los fundamentos que miran inversores y aceleradoras.",
-    feat2Title: "Conoce tu etapa",
-    feat2Text: "Idea, Validación, Construcción, Tracción o Crecimiento — ve exactamente dónde estás.",
-    feat3Title: "Próximos pasos claros",
-    feat3Text: "Tus 3 prioridades de mayor impacto, según tus áreas más débiles.",
     backBtn: "← Atrás",
+    backHome: "← Salir del quiz",
     resultBadge: "Tu Founder Signal",
     focusTitle: "Tus 3 prioridades principales",
     emailTitle: "¿Quieres subir tu score?",
@@ -52,23 +82,40 @@ const UI = {
     newsletterLink: "O sigue la newsletter The Founder Signal en LinkedIn →",
     retryBtn: "Rehacer el quiz",
     questionOf: "Pregunta {n} de {total}",
-    pubTitle: "De la newsletter",
-    pubAll: "Leer todas las ediciones en LinkedIn →",
-    backHome: "← Inicio"
+    articlesTitle: "Artículos",
+    articlesSubtitle: "Publicados originalmente en la newsletter The Founder Signal. Los artículos están en portugués.",
+    pubAll: "Seguir la newsletter en LinkedIn →",
+    backToArticles: "← Todos los artículos",
+    articleFooter: "Publicado originalmente en la newsletter The Founder Signal:",
+    minRead: "min de lectura",
+    aboutTagline: "Emprendedor serial · Exit como cofundador y COO de Lincon Health · Socio en Wellbe",
+    aboutNewsletter: "Newsletter"
   },
   pt: {
-    badge: "Diagnóstico grátis de 2 minutos",
-    heroTitle: "Quão forte é o sinal da sua startup?",
-    heroSubtitle: "Responda 10 perguntas rápidas e receba na hora um score do estágio da sua startup — além das 3 coisas em que você deveria focar.",
+    navHome: "Início",
+    navQuiz: "Diagnóstico",
+    navArticles: "Artigos",
+    navAbout: "Sobre",
+    badge: "Estratégias para empreendedores e startups",
+    heroTitle: "Estratégia real de startups, sem glamour",
+    heroSubtitle: "Sou Jose Gutiérrez — empreendedor serial desde 2007, cofundador com exit (Lincon Health), ex-sócio da ACE Ventures e sócio na Wellbe. Aqui compartilho o que realmente funciona ao construir, crescer e vender uma startup.",
+    ctaQuiz: "Fazer o diagnóstico grátis",
+    ctaArticles: "Ler os artigos",
+    feat1Title: "Artigos de quem viveu",
+    feat1Text: "Estratégia, captação, métricas e pivots — contados por quem passou por eles, com dados e fontes.",
+    feat2Title: "Diagnóstico de 2 minutos",
+    feat2Text: "Responda 10 perguntas e receba um score de 0–100 do estágio da sua startup e suas 3 prioridades.",
+    feat3Title: "Experiência real",
+    feat3Text: "Da fundação ao exit: 300+ startups avaliadas, corporate venture, healthtech e mercados internacionais.",
+    latestTitle: "Últimos artigos",
+    seeAllArticles: "Ver todos os artigos",
+    quizBadge: "Diagnóstico grátis de 2 minutos",
+    quizTitle: "Quão forte é o sinal da sua startup?",
+    quizSubtitle: "Responda 10 perguntas rápidas e receba na hora um score do estágio da sua startup — além das 3 coisas em que você deveria focar.",
     startBtn: "Obter meu score",
     heroHint: "Sem cadastro · 10 perguntas · 2 minutos",
-    feat1Title: "Score instantâneo",
-    feat1Text: "Uma pontuação de 0–100 baseada nos fundamentos que investidores e aceleradoras analisam.",
-    feat2Title: "Conheça seu estágio",
-    feat2Text: "Ideia, Validação, Construção, Tração ou Crescimento — veja exatamente onde você está.",
-    feat3Title: "Próximos passos claros",
-    feat3Text: "Suas 3 prioridades de maior impacto, com base nas suas áreas mais fracas.",
     backBtn: "← Voltar",
+    backHome: "← Sair do quiz",
     resultBadge: "Seu Founder Signal",
     focusTitle: "Suas 3 principais prioridades",
     emailTitle: "Quer aumentar seu score?",
@@ -79,10 +126,87 @@ const UI = {
     newsletterLink: "Ou siga a newsletter The Founder Signal no LinkedIn →",
     retryBtn: "Refazer o quiz",
     questionOf: "Pergunta {n} de {total}",
-    pubTitle: "Da newsletter",
-    pubAll: "Ler todas as edições no LinkedIn →",
-    backHome: "← Início"
+    articlesTitle: "Artigos",
+    articlesSubtitle: "Publicados originalmente na newsletter The Founder Signal.",
+    pubAll: "Seguir a newsletter no LinkedIn →",
+    backToArticles: "← Todos os artigos",
+    articleFooter: "Publicado originalmente na newsletter The Founder Signal:",
+    minRead: "min de leitura",
+    aboutTagline: "Empreendedor serial · Exit como cofundador e COO da Lincon Health · Sócio na Wellbe",
+    aboutNewsletter: "Newsletter"
   }
+};
+
+// ===== 1.5 Bio (seção Sobre) =====
+const ABOUT_BIO = {
+  pt: `Empreendedor serial desde 2007, fundei startups como a Haefni Health (Espanha), fui ex-sócio da ACE Ventures (Brasil), cofundador da Lincon Health (Brasil) — do zero até a venda — e sou sócio na Wellbe (Brasil).
+
+Apaixonado por inovação e negócios digitais, ajudei empresas como Randon, BTG Pactual, Eneva, Andrade & Gutierrez, e startups como Logcomex, Feedz e Auvo a inovar e alcançar resultados concretos.
+
+## Trajetória
+
+- **Empreendedorismo e liderança:** realizei o exit (venda) da Lincon como cofundador e COO. Fundador de startups como Haefni Health (Espanha) e Lincon Health (Brasil), ex-sócio da ACE Ventures e atualmente sócio na Wellbe, desenvolvendo soluções para healthtech.
+- **Empreendedorismo internacional:** fundador e ex-CEO da Haefni Health, com soluções de tecnologia para saúde e desempenho esportivo para clientes como Real Madrid e o Centro de Excelência FIFA Alfredo Rienzi, com atuação em quatro países.
+- **Investimentos e corporate venture:** como Head de Corporate Venture na ACE Startups, liderei investimentos e colaborações com mais de 50 startups, incluindo a criação do programa BootsLab para o BTG Pactual.
+- **Healthtech:** atuação com empresas como Dr. Consulta, Amparo Saúde e Panvel para implementar monitoramento remoto de pacientes.
+- **Consultoria e mentoria:** mentor e conselheiro de startups como Logcomex, Feedz, Melhor Envio, Arpac e Fix It. Avaliei mais de 300 startups ao longo da carreira.
+- **Educação:** coordenador de pós-graduação na ESPM e professor na Tera, com cursos em produtos e métricas digitais.
+- **Acadêmico e escritor:** MBA pela ESIC Business & Marketing School, PhD em Ciências da Atividade Física e do Esporte, autor de diversos artigos e detentor de duas patentes.
+- **Trajetória esportiva:** nove vezes campeão espanhol de wrestling e ex-membro da seleção nacional — a disciplina do esporte de alto rendimento aplicada aos negócios.
+
+## Por que o The Founder Signal?
+
+O mundo do empreendedorismo é dinâmico e desafiador. Há muito conteúdo disponível, mas nem sempre é fácil encontrar discussões práticas sobre os bastidores das startups — dos primeiros passos ao crescimento e ao exit.
+
+O The Founder Signal existe para falar de estratégia de forma clara e sem glamour, conectando empreendedores a empreendedores. Além de experiências e cases, trago análises fundamentadas em estudos, dados e referências concretas. O objetivo não é alimentar mitos, mas oferecer uma visão estratégica e realista do que funciona — e do que não funciona — na construção de um negócio.
+
+Não tenho todas as respostas, mas trago provocações que podem ajudar a enxergar novos caminhos. O objetivo é compartilhar, debater e crescer junto com quem também está nesse jogo.`,
+
+  es: `Emprendedor serial desde 2007, fundé startups como Haefni Health (España), fui socio de ACE Ventures (Brasil), cofundador de Lincon Health (Brasil) — de cero hasta la venta — y soy socio en Wellbe (Brasil).
+
+Apasionado por la innovación y los negocios digitales, ayudé a empresas como Randon, BTG Pactual, Eneva, Andrade & Gutierrez, y a startups como Logcomex, Feedz y Auvo a innovar y lograr resultados concretos.
+
+## Trayectoria
+
+- **Emprendimiento y liderazgo:** realicé el exit (venta) de Lincon como cofundador y COO. Fundador de startups como Haefni Health (España) y Lincon Health (Brasil), ex-socio de ACE Ventures y actualmente socio en Wellbe, desarrollando soluciones healthtech.
+- **Emprendimiento internacional:** fundador y ex-CEO de Haefni Health, con soluciones de tecnología para salud y rendimiento deportivo para clientes como el Real Madrid y el Centro de Excelencia FIFA Alfredo Rienzi, con actuación en cuatro países.
+- **Inversiones y corporate venture:** como Head de Corporate Venture en ACE Startups, lideré inversiones y colaboraciones con más de 50 startups, incluida la creación del programa BootsLab para BTG Pactual.
+- **Healthtech:** trabajo con empresas como Dr. Consulta, Amparo Saúde y Panvel para implementar monitoreo remoto de pacientes.
+- **Consultoría y mentoría:** mentor y consejero de startups como Logcomex, Feedz, Melhor Envio, Arpac y Fix It. Evalué más de 300 startups a lo largo de mi carrera.
+- **Educación:** coordinador de posgrado en ESPM y profesor en Tera, con cursos de productos y métricas digitales.
+- **Académico y escritor:** MBA por ESIC Business & Marketing School, PhD en Ciencias de la Actividad Física y del Deporte, autor de diversos artículos y titular de dos patentes.
+- **Trayectoria deportiva:** nueve veces campeón de España de lucha y ex-miembro de la selección nacional — la disciplina del deporte de alto rendimiento aplicada a los negocios.
+
+## ¿Por qué The Founder Signal?
+
+El mundo del emprendimiento es dinámico y desafiante. Hay mucho contenido disponible, pero no siempre es fácil encontrar discusiones prácticas sobre el detrás de escena de las startups — desde los primeros pasos hasta el crecimiento y el exit.
+
+The Founder Signal existe para hablar de estrategia de forma clara y sin glamour, conectando emprendedores con emprendedores. Además de experiencias y casos, traigo análisis fundamentados en estudios, datos y referencias concretas.
+
+No tengo todas las respuestas, pero traigo provocaciones que pueden ayudar a ver nuevos caminos. El objetivo es compartir, debatir y crecer junto a quienes también están en este juego.`,
+
+  en: `Serial entrepreneur since 2007. I founded startups such as Haefni Health (Spain), was a partner at ACE Ventures (Brazil), co-founded Lincon Health (Brazil) — from zero to the sale — and I'm currently a partner at Wellbe (Brazil).
+
+Passionate about innovation and digital business, I've helped companies like Randon, BTG Pactual, Eneva and Andrade & Gutierrez, and startups like Logcomex, Feedz and Auvo innovate and achieve concrete results.
+
+## Track record
+
+- **Entrepreneurship & leadership:** exit (sale) of Lincon as co-founder and COO. Founder of startups such as Haefni Health (Spain) and Lincon Health (Brazil), former partner at ACE Ventures and currently partner at Wellbe, building healthtech solutions.
+- **International entrepreneurship:** founder and former CEO of Haefni Health, building health and sports-performance technology for clients such as Real Madrid and the FIFA Alfredo Rienzi Center of Excellence, operating in four countries.
+- **Investments & corporate venture:** as Head of Corporate Venture at ACE Startups, I led investments and collaborations with 50+ startups, including creating the BootsLab program for BTG Pactual.
+- **Healthtech:** working with companies like Dr. Consulta, Amparo Saúde and Panvel to implement remote patient monitoring.
+- **Consulting & mentoring:** mentor and advisor to startups such as Logcomex, Feedz, Melhor Envio, Arpac and Fix It. I've evaluated 300+ startups throughout my career.
+- **Education:** postgraduate coordinator at ESPM and professor at Tera, teaching digital products and metrics.
+- **Academic & writer:** MBA from ESIC Business & Marketing School, PhD in Sports Science, author of several papers and holder of two patents.
+- **Sports background:** nine-time Spanish national wrestling champion and former national team member — high-performance discipline applied to business.
+
+## Why The Founder Signal?
+
+The startup world is dynamic and challenging. There's plenty of content out there, but practical, behind-the-scenes discussions — from first steps to growth and exit — are rare.
+
+The Founder Signal exists to talk about strategy clearly and without glamour, connecting entrepreneurs to entrepreneurs. Beyond stories and cases, I bring analyses grounded in studies, data and concrete references.
+
+I don't have all the answers, but I bring provocations that can help you see new paths. The goal is to share, debate and grow together with everyone playing this game.`
 };
 
 // ===== 2. Preguntas =====
@@ -280,44 +404,62 @@ const STAGES = [
   }
 ];
 
-// ===== 3.5 Publicações da newsletter (LinkedIn) =====
-const PUBS = [
-  { title: "Capítulo VI: As métricas que importam e por que a maioria das startups mede as erradas", date: "07/2026", url: "https://pt.linkedin.com/pulse/cap%C3%ADtulo-vi-m%C3%A9tricas-que-importam-e-por-maioria-das-mede-guti%C3%A9rrez-ifwnf" },
-  { title: "Healthtechs: a promessa que nunca chegou", date: "05/2026", url: "https://pt.linkedin.com/pulse/healthtechs-promessa-que-nunca-chegou-jose-guti%C3%A9rrez-sn9zf" },
-  { title: "Capítulo 5: Como conseguir investimento para sua startup", date: "04/2026", url: "https://pt.linkedin.com/pulse/capitulo-5-como-conseguir-de-investimento-para-sua-jose-guti%C3%A9rrez-ztuge" },
-  { title: "O Labirinto da Validação: como os pivots da Lincon forjaram nosso exit", date: "03/2026", url: "https://pt.linkedin.com/pulse/o-labirinto-da-valida%C3%A7%C3%A3o-como-os-pivots-lincon-nosso-exit-guti%C3%A9rrez-37juf" },
-  { title: "Meus 5 Aprendizados de 2025", date: "12/2025", url: "https://pt.linkedin.com/pulse/meus-5-aprendizados-de-2025-jose-guti%C3%A9rrez-6htnf" }
-];
 
-// ===== 4. Estado de la app =====
-let lang = "en";
-let current = 0;                 // pregunta actual
-let points = [];                 // puntos por pregunta
+// ===== 4. Estado da app =====
+let lang = "pt";
+let current = 0;                 // pergunta atual
+let points = [];                 // pontos por pergunta
 let finalScore = 0;
 let finalStage = null;
 
 const $ = (id) => document.getElementById(id);
 
-// ===== 5. Traducción de la interfaz =====
-function renderPubs() {
-  const list = $("pub-list");
-  list.innerHTML = "";
-  PUBS.forEach((p) => {
-    const a = document.createElement("a");
-    a.className = "pub-item";
-    a.href = p.url;
-    a.target = "_blank";
-    a.rel = "noopener";
-    a.innerHTML = `<span class="pub-title"></span><span class="pub-date"></span>`;
-    a.querySelector(".pub-title").textContent = p.title;
-    a.querySelector(".pub-date").textContent = p.date;
-    list.appendChild(a);
-  });
+// ===== 5. Mini-renderizador de markdown (para artigos e bio) =====
+function esc(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+function inline(s) {
+  return esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+function mdToHtml(md) {
+  const lines = md.split("\n");
+  let html = "", list = null, para = [];
+  const flushPara = () => {
+    if (para.length) { html += "<p>" + inline(para.join(" ")) + "</p>"; para = []; }
+  };
+  const flushList = () => {
+    if (list) { html += "<" + list.tag + ">" + list.items.map(i => "<li>" + inline(i) + "</li>").join("") + "</" + list.tag + ">"; list = null; }
+  };
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (!line) { flushPara(); flushList(); continue; }
+    if (line.startsWith("### ")) { flushPara(); flushList(); html += "<h4>" + inline(line.slice(4)) + "</h4>"; continue; }
+    if (line.startsWith("## ")) { flushPara(); flushList(); html += "<h3>" + inline(line.slice(3)) + "</h3>"; continue; }
+    if (line.startsWith("- ")) {
+      flushPara();
+      if (!list || list.tag !== "ul") { flushList(); list = { tag: "ul", items: [] }; }
+      list.items.push(line.slice(2)); continue;
+    }
+    const num = line.match(/^\d+\.\s+(.*)/);
+    if (num) {
+      flushPara();
+      if (!list || list.tag !== "ol") { flushList(); list = { tag: "ol", items: [] }; }
+      list.items.push(num[1]); continue;
+    }
+    if (line.startsWith('"') && line.endsWith('"') && line.length > 80) {
+      flushPara(); flushList(); html += "<blockquote>" + inline(line) + "</blockquote>"; continue;
+    }
+    flushList();
+    para.push(line);
+  }
+  flushPara(); flushList();
+  return html;
 }
 
+// ===== 6. Tradução da interface =====
 function applyTranslations() {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
-    el.textContent = UI[lang][el.dataset.i18n];
+    if (UI[lang][el.dataset.i18n] !== undefined) el.textContent = UI[lang][el.dataset.i18n];
   });
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     el.placeholder = UI[lang][el.dataset.i18nPlaceholder];
@@ -331,19 +473,68 @@ function setLanguage(newLang) {
     b.classList.toggle("active", b.dataset.lang === lang);
   });
   applyTranslations();
-  // Re-renderiza la pantalla activa en el nuevo idioma
+  renderArticleLists();
+  renderAbout();
   if ($("quiz").classList.contains("active")) renderQuestion();
   if ($("result").classList.contains("active")) renderResult(false);
+  if ($("article").classList.contains("active") && currentArticle) openArticle(currentArticle, false);
 }
 
-// ===== 6. Navegación entre pantallas =====
+// ===== 7. Navegação entre telas =====
 function showScreen(id) {
   document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
   $(id).classList.add("active");
+  // marca o item do menu correspondente
+  const navId = { home: "home", "quiz-intro": "quiz-intro", quiz: "quiz-intro", result: "quiz-intro", articles: "articles", article: "articles", about: "about" }[id];
+  document.querySelectorAll(".mainnav button").forEach((b) => {
+    b.classList.toggle("active", b.dataset.nav === navId);
+  });
   window.scrollTo(0, 0);
 }
 
-// ===== 7. Quiz =====
+// Qualquer elemento com data-nav muda de tela
+document.querySelectorAll("[data-nav]").forEach((el) => {
+  el.addEventListener("click", () => showScreen(el.dataset.nav));
+});
+$("logo-home").onclick = () => showScreen("home");
+
+// ===== 8. Artigos =====
+let currentArticle = null;
+
+function articleButton(a) {
+  const btn = document.createElement("button");
+  btn.className = "pub-item";
+  btn.innerHTML = `<span class="pub-title"></span><span class="pub-date"></span>`;
+  btn.querySelector(".pub-title").textContent = a.title;
+  btn.querySelector(".pub-date").textContent = a.date.slice(3) + " · " + a.minutes + " " + UI[lang].minRead;
+  btn.onclick = () => openArticle(a, true);
+  return btn;
+}
+
+function renderArticleLists() {
+  const home = $("home-articles");
+  home.innerHTML = "";
+  ARTICLES.slice(0, 3).forEach((a) => home.appendChild(articleButton(a)));
+
+  const all = $("article-list");
+  all.innerHTML = "";
+  ARTICLES.forEach((a) => all.appendChild(articleButton(a)));
+}
+
+function openArticle(a, navigate) {
+  currentArticle = a;
+  $("article-meta").textContent = a.date + " · " + a.minutes + " " + UI[lang].minRead;
+  $("article-title").textContent = a.title;
+  $("article-body").innerHTML = mdToHtml(a.body);
+  if (navigate) showScreen("article");
+}
+
+// ===== 9. Sobre =====
+function renderAbout() {
+  $("about-body").innerHTML = mdToHtml(ABOUT_BIO[lang]);
+}
+
+// ===== 10. Quiz =====
 function renderQuestion() {
   const q = QUESTIONS[current];
   $("progress-bar").style.width = `${(current / QUESTIONS.length) * 100}%`;
@@ -366,21 +557,21 @@ function renderQuestion() {
     answersDiv.appendChild(btn);
   });
 
-  // Na primeira pergunta o botão volta para a página inicial
+  // Na primeira pergunta o botão sai do quiz
   $("back-btn").textContent = current === 0 ? UI[lang].backHome : UI[lang].backBtn;
 }
 
-// ===== 8. Resultado =====
+// ===== 11. Resultado =====
 function renderResult(recalculate) {
   if (recalculate) {
     const total = points.reduce((sum, p) => sum + p, 0);
     finalScore = Math.round((total / (QUESTIONS.length * 3)) * 100);
     finalStage = STAGES.find((s) => finalScore >= s.min && finalScore <= s.max);
   }
+  if (!finalStage) return;
 
   showScreen("result");
 
-  // Anima el número y el anillo
   $("score-value").textContent = finalScore;
   const circumference = 326.7;
   requestAnimationFrame(() => {
@@ -390,7 +581,7 @@ function renderResult(recalculate) {
   $("stage-name").textContent = finalStage.name[lang];
   $("stage-desc").textContent = finalStage.desc[lang];
 
-  // Top 3 recomendaciones = las 3 preguntas con menor puntaje
+  // Top 3 recomendações = as 3 perguntas com menor pontuação
   const ranked = QUESTIONS
     .map((q, i) => ({ rec: q.rec[lang], score: points[i], order: i }))
     .sort((a, b) => a.score - b.score || a.order - b.order)
@@ -405,7 +596,7 @@ function renderResult(recalculate) {
   });
 }
 
-// ===== 9. Captura de email (opcional) =====
+// ===== 12. Captura de email (opcional) =====
 $("email-form").addEventListener("submit", async (e) => {
   e.preventDefault();
   const email = $("email-input").value;
@@ -416,18 +607,18 @@ $("email-form").addEventListener("submit", async (e) => {
       body: JSON.stringify({
         email,
         score: finalScore,
-        stage: finalStage.name.en,
+        stage: finalStage ? finalStage.name.en : "",
         language: lang
       })
     });
   } catch {
-    // Si el servidor no responde, no bloqueamos la experiencia del usuario
+    // Se o servidor não responder, não bloqueamos a experiência
   }
   $("email-form").classList.add("hidden");
   $("email-done").classList.remove("hidden");
 });
 
-// ===== 10. Eventos =====
+// ===== 13. Eventos do quiz =====
 $("start-btn").onclick = () => {
   current = 0;
   points = [];
@@ -440,12 +631,9 @@ $("back-btn").onclick = () => {
     current--;
     renderQuestion();
   } else {
-    showScreen("landing"); // primeira pergunta → volta ao início
+    showScreen("quiz-intro");
   }
 };
-
-// Clicar no logo sempre volta à página inicial
-$("logo-home").onclick = () => showScreen("landing");
 
 $("retry-btn").onclick = () => {
   current = 0;
@@ -462,7 +650,6 @@ document.querySelectorAll(".lang-switch button").forEach((b) => {
   b.onclick = () => setLanguage(b.dataset.lang);
 });
 
-// Detecta el idioma del navegador la primera vez
-const browserLang = (navigator.language || "en").slice(0, 2);
+// Detecta o idioma do navegador na primeira visita
+const browserLang = (navigator.language || "pt").slice(0, 2);
 setLanguage(["en", "es", "pt"].includes(browserLang) ? browserLang : "en");
-renderPubs();

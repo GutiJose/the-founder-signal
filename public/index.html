@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Founder Signal — How strong is your startup?</title>
-  <meta name="description" content="A 2-minute diagnostic that scores your startup's stage and tells you what to focus on next." />
+  <title>The Founder Signal — Jose Gutiérrez</title>
+  <meta name="description" content="Estratégias para empreendedores e startups: artigos, diagnóstico do estágio da sua startup e a experiência de quem já construiu, vendeu e investiu." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
@@ -13,30 +13,40 @@
 
   <header class="topbar">
     <div class="logo" id="logo-home" title="Home">The Founder <span>Signal</span></div>
+    <nav class="mainnav" aria-label="Main">
+      <button data-nav="home" class="active" data-i18n="navHome"></button>
+      <button data-nav="quiz-intro" data-i18n="navQuiz"></button>
+      <button data-nav="articles" data-i18n="navArticles"></button>
+      <button data-nav="about" data-i18n="navAbout"></button>
+    </nav>
     <nav class="lang-switch" aria-label="Language">
-      <button data-lang="en" class="active">EN</button>
+      <button data-lang="en">EN</button>
       <button data-lang="es">ES</button>
-      <button data-lang="pt">PT</button>
+      <button data-lang="pt" class="active">PT</button>
     </nav>
   </header>
 
-  <!-- ===== LANDING ===== -->
-  <section id="landing" class="screen active">
-    <div class="hero">
+  <!-- ===== HOME ===== -->
+  <section id="home" class="screen active">
+    <div class="hero hero-person">
+      <img class="avatar" src="https://substackcdn.com/image/fetch/w_512,h_512,c_fill,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F152e0d2a-07ce-45cc-b5f7-5f3d783b3e7a_512x512.jpeg" alt="Jose Gutiérrez" />
       <p class="badge" data-i18n="badge"></p>
       <h1 data-i18n="heroTitle"></h1>
       <p class="subtitle" data-i18n="heroSubtitle"></p>
-      <button id="start-btn" class="btn-primary" data-i18n="startBtn"></button>
-      <p class="hint" data-i18n="heroHint"></p>
+      <div class="hero-actions">
+        <button class="btn-primary" data-nav="quiz-intro" data-i18n="ctaQuiz"></button>
+        <button class="btn-secondary" data-nav="articles" data-i18n="ctaArticles"></button>
+      </div>
     </div>
+
     <div class="features">
       <div class="feature">
-        <div class="feature-icon">⚡</div>
+        <div class="feature-icon">📡</div>
         <h3 data-i18n="feat1Title"></h3>
         <p data-i18n="feat1Text"></p>
       </div>
       <div class="feature">
-        <div class="feature-icon">🎯</div>
+        <div class="feature-icon">⚡</div>
         <h3 data-i18n="feat2Title"></h3>
         <p data-i18n="feat2Text"></p>
       </div>
@@ -47,11 +57,21 @@
       </div>
     </div>
 
-    <!-- Publicações da newsletter -->
     <div class="pubs">
-      <h2 data-i18n="pubTitle"></h2>
-      <div id="pub-list" class="pub-list"></div>
-      <a class="newsletter-link" href="https://www.linkedin.com/newsletters/the-founder-signal-7312236537943879680/" target="_blank" rel="noopener" data-i18n="pubAll"></a>
+      <h2 data-i18n="latestTitle"></h2>
+      <div id="home-articles" class="pub-list"></div>
+      <button class="btn-secondary" data-nav="articles" data-i18n="seeAllArticles"></button>
+    </div>
+  </section>
+
+  <!-- ===== QUIZ INTRO ===== -->
+  <section id="quiz-intro" class="screen">
+    <div class="hero">
+      <p class="badge" data-i18n="quizBadge"></p>
+      <h1 data-i18n="quizTitle"></h1>
+      <p class="subtitle" data-i18n="quizSubtitle"></p>
+      <button id="start-btn" class="btn-primary" data-i18n="startBtn"></button>
+      <p class="hint" data-i18n="heroHint"></p>
     </div>
   </section>
 
@@ -62,7 +82,7 @@
       <p id="question-count" class="question-count"></p>
       <h2 id="question-text"></h2>
       <div id="answers" class="answers"></div>
-      <button id="back-btn" class="btn-ghost" data-i18n="backBtn"></button>
+      <button id="back-btn" class="btn-ghost"></button>
     </div>
   </section>
 
@@ -98,10 +118,53 @@
     </div>
   </section>
 
+  <!-- ===== ARTIGOS (lista) ===== -->
+  <section id="articles" class="screen">
+    <div class="page">
+      <h1 data-i18n="articlesTitle"></h1>
+      <p class="subtitle" data-i18n="articlesSubtitle"></p>
+      <div id="article-list" class="article-list"></div>
+      <a class="newsletter-link" href="https://www.linkedin.com/newsletters/the-founder-signal-7312236537943879680/" target="_blank" rel="noopener" data-i18n="pubAll"></a>
+    </div>
+  </section>
+
+  <!-- ===== ARTIGO (leitura) ===== -->
+  <section id="article" class="screen">
+    <article class="page reader">
+      <button class="btn-ghost" data-nav="articles" data-i18n="backToArticles"></button>
+      <p id="article-meta" class="article-meta"></p>
+      <h1 id="article-title"></h1>
+      <div id="article-body" class="article-body"></div>
+      <hr />
+      <p class="article-footer"><span data-i18n="articleFooter"></span> <a href="https://www.linkedin.com/newsletters/the-founder-signal-7312236537943879680/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://thefoundersignal.substack.com" target="_blank" rel="noopener">Substack</a></p>
+      <button class="btn-secondary" data-nav="articles" data-i18n="backToArticles"></button>
+    </article>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section id="about" class="screen">
+    <div class="page about">
+      <div class="about-header">
+        <img class="avatar avatar-lg" src="https://substackcdn.com/image/fetch/w_512,h_512,c_fill,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F152e0d2a-07ce-45cc-b5f7-5f3d783b3e7a_512x512.jpeg" alt="Jose Gutiérrez" />
+        <div>
+          <h1>Jose Gutiérrez</h1>
+          <p class="subtitle" data-i18n="aboutTagline"></p>
+          <div class="about-links">
+            <a href="https://www.linkedin.com/in/gutihjose/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://thefoundersignal.substack.com" target="_blank" rel="noopener">Substack</a>
+            <a href="https://www.linkedin.com/newsletters/the-founder-signal-7312236537943879680/" target="_blank" rel="noopener" data-i18n="aboutNewsletter"></a>
+          </div>
+        </div>
+      </div>
+      <div id="about-body" class="article-body"></div>
+    </div>
+  </section>
+
   <footer>
-    <p>© 2026 The Founder Signal · <a href="https://www.linkedin.com/newsletters/the-founder-signal-7312236537943879680/" target="_blank" rel="noopener">LinkedIn Newsletter</a></p>
+    <p>© 2026 The Founder Signal · Jose Gutiérrez · <a href="https://www.linkedin.com/newsletters/the-founder-signal-7312236537943879680/" target="_blank" rel="noopener">LinkedIn Newsletter</a></p>
   </footer>
 
+  <script src="articles.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
