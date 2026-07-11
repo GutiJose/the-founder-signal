@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Founder Signal — How strong is your startup?</title>
+  <meta name="description" content="A 2-minute diagnostic that scores your startup's stage and tells you what to focus on next." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="logo">The Founder <span>Signal</span></div>
+    <nav class="lang-switch" aria-label="Language">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="es">ES</button>
+      <button data-lang="pt">PT</button>
+    </nav>
+  </header>
+
+  <!-- ===== LANDING ===== -->
+  <section id="landing" class="screen active">
+    <div class="hero">
+      <p class="badge" data-i18n="badge"></p>
+      <h1 data-i18n="heroTitle"></h1>
+      <p class="subtitle" data-i18n="heroSubtitle"></p>
+      <button id="start-btn" class="btn-primary" data-i18n="startBtn"></button>
+      <p class="hint" data-i18n="heroHint"></p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <h3 data-i18n="feat1Title"></h3>
+        <p data-i18n="feat1Text"></p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎯</div>
+        <h3 data-i18n="feat2Title"></h3>
+        <p data-i18n="feat2Text"></p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🧭</div>
+        <h3 data-i18n="feat3Title"></h3>
+        <p data-i18n="feat3Text"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUIZ ===== -->
+  <section id="quiz" class="screen">
+    <div class="quiz-box">
+      <div class="progress-track"><div id="progress-bar"></div></div>
+      <p id="question-count" class="question-count"></p>
+      <h2 id="question-text"></h2>
+      <div id="answers" class="answers"></div>
+      <button id="back-btn" class="btn-ghost" data-i18n="backBtn"></button>
+    </div>
+  </section>
+
+  <!-- ===== RESULT ===== -->
+  <section id="result" class="screen">
+    <div class="result-box">
+      <p class="badge" data-i18n="resultBadge"></p>
+      <div class="score-ring">
+        <svg viewBox="0 0 120 120">
+          <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+          <circle id="ring-fill" class="ring-fill" cx="60" cy="60" r="52"></circle>
+        </svg>
+        <div class="score-number"><span id="score-value">0</span><small>/100</small></div>
+      </div>
+      <h2 id="stage-name"></h2>
+      <p id="stage-desc" class="stage-desc"></p>
+
+      <h3 data-i18n="focusTitle"></h3>
+      <ol id="recommendations" class="recs"></ol>
+
+      <div class="email-card">
+        <h3 data-i18n="emailTitle"></h3>
+        <p data-i18n="emailText"></p>
+        <form id="email-form">
+          <input type="email" id="email-input" required data-i18n-placeholder="emailPlaceholder" />
+          <button type="submit" class="btn-primary" data-i18n="emailBtn"></button>
+        </form>
+        <p id="email-done" class="email-done hidden" data-i18n="emailDone"></p>
+        <a class="newsletter-link" href="https://www.linkedin.com/newsletters/the-founder-signal-7312236537943879680/" target="_blank" rel="noopener" data-i18n="newsletterLink"></a>
+      </div>
+
+      <button id="retry-btn" class="btn-ghost" data-i18n="retryBtn"></button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 The Founder Signal · <a href="https://www.linkedin.com/newsletters/the-founder-signal-7312236537943879680/" target="_blank" rel="noopener">LinkedIn Newsletter</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
