@@ -32,7 +32,7 @@ body {
   margin: 0 auto;
 }
 
-.logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; }
+.logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; cursor: pointer; }
 .logo span { color: var(--accent); }
 
 .lang-switch button {
@@ -128,6 +128,36 @@ h1 {
 .feature-icon { font-size: 1.6rem; margin-bottom: 12px; }
 .feature h3 { font-size: 1rem; margin-bottom: 8px; }
 .feature p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; }
+
+/* ---- Publicações da newsletter ---- */
+.pubs {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+.pubs h2 { font-size: 1.4rem; margin-bottom: 20px; }
+
+.pub-list { display: flex; flex-direction: column; gap: 10px; }
+
+.pub-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s, background 0.15s;
+}
+.pub-item:hover {
+  border-color: var(--accent);
+  background: rgba(45, 212, 167, 0.06);
+}
+.pub-title { font-size: 0.95rem; line-height: 1.45; }
+.pub-date { color: var(--text-dim); font-size: 0.8rem; white-space: nowrap; }
 
 /* ---- Quiz ---- */
 .quiz-box {

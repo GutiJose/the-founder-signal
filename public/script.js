@@ -24,7 +24,10 @@ const UI = {
     emailDone: "✓ You're in! Check your inbox soon.",
     newsletterLink: "Or follow The Founder Signal newsletter on LinkedIn →",
     retryBtn: "Retake the quiz",
-    questionOf: "Question {n} of {total}"
+    questionOf: "Question {n} of {total}",
+    pubTitle: "From the newsletter",
+    pubAll: "Read all editions on LinkedIn →",
+    backHome: "← Home"
   },
   es: {
     badge: "Diagnóstico gratis de 2 minutos",
@@ -48,7 +51,10 @@ const UI = {
     emailDone: "✓ ¡Listo! Pronto recibirás noticias.",
     newsletterLink: "O sigue la newsletter The Founder Signal en LinkedIn →",
     retryBtn: "Rehacer el quiz",
-    questionOf: "Pregunta {n} de {total}"
+    questionOf: "Pregunta {n} de {total}",
+    pubTitle: "De la newsletter",
+    pubAll: "Leer todas las ediciones en LinkedIn →",
+    backHome: "← Inicio"
   },
   pt: {
     badge: "Diagnóstico grátis de 2 minutos",
@@ -72,7 +78,10 @@ const UI = {
     emailDone: "✓ Pronto! Em breve você recebe novidades.",
     newsletterLink: "Ou siga a newsletter The Founder Signal no LinkedIn →",
     retryBtn: "Refazer o quiz",
-    questionOf: "Pergunta {n} de {total}"
+    questionOf: "Pergunta {n} de {total}",
+    pubTitle: "Da newsletter",
+    pubAll: "Ler todas as edições no LinkedIn →",
+    backHome: "← Início"
   }
 };
 
@@ -271,6 +280,15 @@ const STAGES = [
   }
 ];
 
+// ===== 3.5 Publicações da newsletter (LinkedIn) =====
+const PUBS = [
+  { title: "Capítulo VI: As métricas que importam e por que a maioria das startups mede as erradas", date: "07/2026", url: "https://pt.linkedin.com/pulse/cap%C3%ADtulo-vi-m%C3%A9tricas-que-importam-e-por-maioria-das-mede-guti%C3%A9rrez-ifwnf" },
+  { title: "Healthtechs: a promessa que nunca chegou", date: "05/2026", url: "https://pt.linkedin.com/pulse/healthtechs-promessa-que-nunca-chegou-jose-guti%C3%A9rrez-sn9zf" },
+  { title: "Capítulo 5: Como conseguir investimento para sua startup", date: "04/2026", url: "https://pt.linkedin.com/pulse/capitulo-5-como-conseguir-de-investimento-para-sua-jose-guti%C3%A9rrez-ztuge" },
+  { title: "O Labirinto da Validação: como os pivots da Lincon forjaram nosso exit", date: "03/2026", url: "https://pt.linkedin.com/pulse/o-labirinto-da-valida%C3%A7%C3%A3o-como-os-pivots-lincon-nosso-exit-guti%C3%A9rrez-37juf" },
+  { title: "Meus 5 Aprendizados de 2025", date: "12/2025", url: "https://pt.linkedin.com/pulse/meus-5-aprendizados-de-2025-jose-guti%C3%A9rrez-6htnf" }
+];
+
 // ===== 4. Estado de la app =====
 let lang = "en";
 let current = 0;                 // pregunta actual
@@ -281,6 +299,22 @@ let finalStage = null;
 const $ = (id) => document.getElementById(id);
 
 // ===== 5. Traducción de la interfaz =====
+function renderPubs() {
+  const list = $("pub-list");
+  list.innerHTML = "";
+  PUBS.forEach((p) => {
+    const a = document.createElement("a");
+    a.className = "pub-item";
+    a.href = p.url;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.innerHTML = `<span class="pub-title"></span><span class="pub-date"></span>`;
+    a.querySelector(".pub-title").textContent = p.title;
+    a.querySelector(".pub-date").textContent = p.date;
+    list.appendChild(a);
+  });
+}
+
 function applyTranslations() {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     el.textContent = UI[lang][el.dataset.i18n];
@@ -332,7 +366,8 @@ function renderQuestion() {
     answersDiv.appendChild(btn);
   });
 
-  $("back-btn").style.visibility = current === 0 ? "hidden" : "visible";
+  // Na primeira pergunta o botão volta para a página inicial
+  $("back-btn").textContent = current === 0 ? UI[lang].backHome : UI[lang].backBtn;
 }
 
 // ===== 8. Resultado =====
@@ -404,8 +439,13 @@ $("back-btn").onclick = () => {
   if (current > 0) {
     current--;
     renderQuestion();
+  } else {
+    showScreen("landing"); // primeira pergunta → volta ao início
   }
 };
+
+// Clicar no logo sempre volta à página inicial
+$("logo-home").onclick = () => showScreen("landing");
 
 $("retry-btn").onclick = () => {
   current = 0;
@@ -425,3 +465,4 @@ document.querySelectorAll(".lang-switch button").forEach((b) => {
 // Detecta el idioma del navegador la primera vez
 const browserLang = (navigator.language || "en").slice(0, 2);
 setLanguage(["en", "es", "pt"].includes(browserLang) ? browserLang : "en");
+renderPubs();
