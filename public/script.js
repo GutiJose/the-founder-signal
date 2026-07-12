@@ -714,3 +714,94 @@ setLanguage(["en", "es", "pt"].includes(browserLang) ? browserLang : "en");
 
 // Abre a seção indicada na URL (ex.: thefoundersignal.com/#articles)
 openFromHash();
+
+// ===== 14. Fundo interativo de partículas ("sinal") =====
+(function () {
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canvas = document.getElementById("bg-canvas");
+  if (!canvas || reduced) return;
+  const ctx = canvas.getContext("2d");
+
+  let W, H, particles;
+  const mouse = { x: -9999, y: -9999 };
+  const COUNT = () => Math.min(90, Math.floor((W * H) / 22000));
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    particles = Array.from({ length: COUNT() }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      r: 1 + Math.random() * 1.6
+    }));
+  }
+
+  window.addEventListener("resize", resize);
+  window.addEventListener("mousemove", (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+  window.addEventListener("mouseout", () => { mouse.x = -9999; mouse.y = -9999; });
+  resize();
+
+  function tick() {
+    ctx.clearRect(0, 0, W, H);
+
+    for (const p of particles) {
+      // leve atração ao cursor
+      const dxm = mouse.x - p.x, dym = mouse.y - p.y;
+      const dm = Math.hypot(dxm, dym);
+      if (dm < 180 && dm > 0.1) {
+        p.vx += (dxm / dm) * 0.012;
+        p.vy += (dym / dm) * 0.012;
+      }
+      // limita velocidade e move
+      p.vx = Math.max(-0.6, Math.min(0.6, p.vx));
+      p.vy = Math.max(-0.6, Math.min(0.6, p.vy));
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(167, 139, 250, 0.55)";
+      ctx.fill();
+    }
+
+    // conecta partículas próximas (efeito "rede de sinal")
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i], b = particles[j];
+        const d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < 130) {
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(139, 92, 246, ${0.16 * (1 - d / 130)})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+// ===== 15. Animações de entrada ao rolar =====
+(function () {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); });
+  }, { threshold: 0.12 });
+
+  function observeAll() {
+    document.querySelectorAll(".feature, .pub-item, .email-card, .recs li").forEach((el) => {
+      if (!el.classList.contains("reveal")) {
+        el.classList.add("reveal");
+        observer.observe(el);
+      }
+    });
+  }
+  observeAll();
+  // re-observa quando listas são re-renderizadas (troca de idioma, resultado do quiz)
+  new MutationObserver(observeAll).observe(document.body, { childList: true, subtree: true });
+})();
