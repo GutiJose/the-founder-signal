@@ -1,4 +1,4 @@
-// The Founder Signal — site pessoal de Jose Gutiérrez
+// The Founder Signal, site pessoal de Jose Gutiérrez
 // Seções: Início · Diagnóstico · Artigos · Sobre (EN/ES/PT)
 
 // ===== 1. Textos da interface =====
@@ -10,11 +10,11 @@ const UI = {
     navAbout: "About",
     badge: "Strategies for founders & startups",
     heroTitle: "Real startup strategy, without the glamour",
-    heroSubtitle: "I'm Jose Gutiérrez — serial entrepreneur since 2007, co-founder with an exit (Lincon Health), ex-partner at ACE Ventures and partner at Wellbe. Here I share what actually works when building, growing and selling a startup.",
+    heroSubtitle: "I'm Jose Gutiérrez, serial entrepreneur since 2007, co-founder with an exit (Lincon Health), ex-partner at ACE Ventures and partner at Wellbe. Here I share what actually works when building, growing and selling a startup.",
     ctaQuiz: "Take the free diagnostic",
     ctaArticles: "Read the articles",
     feat1Title: "Articles from the trenches",
-    feat1Text: "Strategy, fundraising, metrics and pivots — told by someone who lived them, with data and sources.",
+    feat1Text: "Strategy, fundraising, metrics and pivots, told by someone who lived them, with data and sources.",
     feat2Title: "2-minute diagnostic",
     feat2Text: "Answer 10 questions and get a 0–100 score of your startup's stage plus your top 3 priorities.",
     feat3Title: "Real experience",
@@ -23,7 +23,7 @@ const UI = {
     seeAllArticles: "See all articles",
     quizBadge: "Free 2-minute diagnostic",
     quizTitle: "How strong is your startup signal?",
-    quizSubtitle: "Answer 10 quick questions and get an instant score of your startup's stage — plus the 3 things you should focus on next.",
+    quizSubtitle: "Answer 10 quick questions and get an instant score of your startup's stage, plus the 3 things you should focus on next.",
     startBtn: "Get my score",
     heroHint: "No sign-up required · 10 questions · 2 minutes",
     backBtn: "← Back",
@@ -54,11 +54,11 @@ const UI = {
     navAbout: "Sobre mí",
     badge: "Estrategias para emprendedores y startups",
     heroTitle: "Estrategia real de startups, sin glamour",
-    heroSubtitle: "Soy Jose Gutiérrez — emprendedor serial desde 2007, cofundador con exit (Lincon Health), ex-socio de ACE Ventures y socio en Wellbe. Aquí comparto lo que de verdad funciona al construir, crecer y vender una startup.",
+    heroSubtitle: "Soy Jose Gutiérrez, emprendedor serial desde 2007, cofundador con exit (Lincon Health), ex-socio de ACE Ventures y socio en Wellbe. Aquí comparto lo que de verdad funciona al construir, crecer y vender una startup.",
     ctaQuiz: "Hacer el diagnóstico gratis",
     ctaArticles: "Leer los artículos",
     feat1Title: "Artículos desde la trinchera",
-    feat1Text: "Estrategia, inversión, métricas y pivots — contados por quien los vivió, con datos y fuentes.",
+    feat1Text: "Estrategia, inversión, métricas y pivots, contados por quien los vivió, con datos y fuentes.",
     feat2Title: "Diagnóstico de 2 minutos",
     feat2Text: "Responde 10 preguntas y obtén un score de 0–100 de la etapa de tu startup y tus 3 prioridades.",
     feat3Title: "Experiencia real",
@@ -67,7 +67,7 @@ const UI = {
     seeAllArticles: "Ver todos los artículos",
     quizBadge: "Diagnóstico gratis de 2 minutos",
     quizTitle: "¿Qué tan fuerte es la señal de tu startup?",
-    quizSubtitle: "Responde 10 preguntas rápidas y obtén al instante un score de la etapa de tu startup — más las 3 cosas en las que deberías enfocarte.",
+    quizSubtitle: "Responde 10 preguntas rápidas y obtén al instante un score de la etapa de tu startup, más las 3 cosas en las que deberías enfocarte.",
     startBtn: "Obtener mi score",
     heroHint: "Sin registro · 10 preguntas · 2 minutos",
     backBtn: "← Atrás",
@@ -98,11 +98,11 @@ const UI = {
     navAbout: "Sobre",
     badge: "Estratégias para empreendedores e startups",
     heroTitle: "Estratégia real de startups, sem glamour",
-    heroSubtitle: "Sou Jose Gutiérrez — empreendedor serial desde 2007, cofundador com exit (Lincon Health), ex-sócio da ACE Ventures e sócio na Wellbe. Aqui compartilho o que realmente funciona ao construir, crescer e vender uma startup.",
+    heroSubtitle: "Sou Jose Gutiérrez, empreendedor serial desde 2007, cofundador com exit (Lincon Health), ex-sócio da ACE Ventures e sócio na Wellbe. Aqui compartilho o que realmente funciona ao construir, crescer e vender uma startup.",
     ctaQuiz: "Fazer o diagnóstico grátis",
     ctaArticles: "Ler os artigos",
     feat1Title: "Artigos de quem viveu",
-    feat1Text: "Estratégia, captação, métricas e pivots — contados por quem passou por eles, com dados e fontes.",
+    feat1Text: "Estratégia, captação, métricas e pivots, contados por quem passou por eles, com dados e fontes.",
     feat2Title: "Diagnóstico de 2 minutos",
     feat2Text: "Responda 10 perguntas e receba um score de 0–100 do estágio da sua startup e suas 3 prioridades.",
     feat3Title: "Experiência real",
@@ -111,7 +111,7 @@ const UI = {
     seeAllArticles: "Ver todos os artigos",
     quizBadge: "Diagnóstico grátis de 2 minutos",
     quizTitle: "Quão forte é o sinal da sua startup?",
-    quizSubtitle: "Responda 10 perguntas rápidas e receba na hora um score do estágio da sua startup — além das 3 coisas em que você deveria focar.",
+    quizSubtitle: "Responda 10 perguntas rápidas e receba na hora um score do estágio da sua startup, além das 3 coisas em que você deveria focar.",
     startBtn: "Obter meu score",
     heroHint: "Sem cadastro · 10 perguntas · 2 minutos",
     backBtn: "← Voltar",
@@ -139,7 +139,7 @@ const UI = {
 
 // ===== 1.5 Bio (seção Sobre) =====
 const ABOUT_BIO = {
-  pt: `Empreendedor serial desde 2007, fundei startups como a Haefni Health (Espanha), fui ex-sócio da ACE Ventures (Brasil), cofundador da Lincon Health (Brasil) — do zero até a venda — e sou sócio na Wellbe (Brasil).
+  pt: `Empreendedor serial desde 2007, fundei startups como a Haefni Health (Espanha), fui ex-sócio da ACE Ventures (Brasil), cofundador da Lincon Health (Brasil), do zero até a venda, e sou sócio na Wellbe (Brasil).
 
 Apaixonado por inovação e negócios digitais, ajudei empresas como Randon, BTG Pactual, Eneva, Andrade & Gutierrez, e startups como Logcomex, Feedz e Auvo a inovar e alcançar resultados concretos.
 
@@ -152,17 +152,17 @@ Apaixonado por inovação e negócios digitais, ajudei empresas como Randon, BTG
 - **Consultoria e mentoria:** mentor e conselheiro de startups como Logcomex, Feedz, Melhor Envio, Arpac e Fix It. Avaliei mais de 300 startups ao longo da carreira.
 - **Educação:** coordenador de pós-graduação na ESPM e professor na Tera, com cursos em produtos e métricas digitais.
 - **Acadêmico e escritor:** MBA pela ESIC Business & Marketing School, PhD em Ciências da Atividade Física e do Esporte, autor de diversos artigos e detentor de duas patentes.
-- **Trajetória esportiva:** nove vezes campeão espanhol de wrestling e ex-membro da seleção nacional — a disciplina do esporte de alto rendimento aplicada aos negócios.
+- **Trajetória esportiva:** nove vezes campeão espanhol de wrestling e ex-membro da seleção nacional, a disciplina do esporte de alto rendimento aplicada aos negócios.
 
 ## Por que o The Founder Signal?
 
-O mundo do empreendedorismo é dinâmico e desafiador. Há muito conteúdo disponível, mas nem sempre é fácil encontrar discussões práticas sobre os bastidores das startups — dos primeiros passos ao crescimento e ao exit.
+O mundo do empreendedorismo é dinâmico e desafiador. Há muito conteúdo disponível, mas nem sempre é fácil encontrar discussões práticas sobre os bastidores das startups, dos primeiros passos ao crescimento e ao exit.
 
-O The Founder Signal existe para falar de estratégia de forma clara e sem glamour, conectando empreendedores a empreendedores. Além de experiências e cases, trago análises fundamentadas em estudos, dados e referências concretas. O objetivo não é alimentar mitos, mas oferecer uma visão estratégica e realista do que funciona — e do que não funciona — na construção de um negócio.
+O The Founder Signal existe para falar de estratégia de forma clara e sem glamour, conectando empreendedores a empreendedores. Além de experiências e cases, trago análises fundamentadas em estudos, dados e referências concretas. O objetivo não é alimentar mitos, mas oferecer uma visão estratégica e realista do que funciona, e do que não funciona, na construção de um negócio.
 
 Não tenho todas as respostas, mas trago provocações que podem ajudar a enxergar novos caminhos. O objetivo é compartilhar, debater e crescer junto com quem também está nesse jogo.`,
 
-  es: `Emprendedor serial desde 2007, fundé startups como Haefni Health (España), fui socio de ACE Ventures (Brasil), cofundador de Lincon Health (Brasil) — de cero hasta la venta — y soy socio en Wellbe (Brasil).
+  es: `Emprendedor serial desde 2007, fundé startups como Haefni Health (España), fui socio de ACE Ventures (Brasil), cofundador de Lincon Health (Brasil), de cero hasta la venta, y soy socio en Wellbe (Brasil).
 
 Apasionado por la innovación y los negocios digitales, ayudé a empresas como Randon, BTG Pactual, Eneva, Andrade & Gutierrez, y a startups como Logcomex, Feedz y Auvo a innovar y lograr resultados concretos.
 
@@ -175,17 +175,17 @@ Apasionado por la innovación y los negocios digitales, ayudé a empresas como R
 - **Consultoría y mentoría:** mentor y consejero de startups como Logcomex, Feedz, Melhor Envio, Arpac y Fix It. Evalué más de 300 startups a lo largo de mi carrera.
 - **Educación:** coordinador de posgrado en ESPM y profesor en Tera, con cursos de productos y métricas digitales.
 - **Académico y escritor:** MBA por ESIC Business & Marketing School, PhD en Ciencias de la Actividad Física y del Deporte, autor de diversos artículos y titular de dos patentes.
-- **Trayectoria deportiva:** nueve veces campeón de España de lucha y ex-miembro de la selección nacional — la disciplina del deporte de alto rendimiento aplicada a los negocios.
+- **Trayectoria deportiva:** nueve veces campeón de España de lucha y ex-miembro de la selección nacional, la disciplina del deporte de alto rendimiento aplicada a los negocios.
 
 ## ¿Por qué The Founder Signal?
 
-El mundo del emprendimiento es dinámico y desafiante. Hay mucho contenido disponible, pero no siempre es fácil encontrar discusiones prácticas sobre el detrás de escena de las startups — desde los primeros pasos hasta el crecimiento y el exit.
+El mundo del emprendimiento es dinámico y desafiante. Hay mucho contenido disponible, pero no siempre es fácil encontrar discusiones prácticas sobre el detrás de escena de las startups, desde los primeros pasos hasta el crecimiento y el exit.
 
 The Founder Signal existe para hablar de estrategia de forma clara y sin glamour, conectando emprendedores con emprendedores. Además de experiencias y casos, traigo análisis fundamentados en estudios, datos y referencias concretas.
 
 No tengo todas las respuestas, pero traigo provocaciones que pueden ayudar a ver nuevos caminos. El objetivo es compartir, debatir y crecer junto a quienes también están en este juego.`,
 
-  en: `Serial entrepreneur since 2007. I founded startups such as Haefni Health (Spain), was a partner at ACE Ventures (Brazil), co-founded Lincon Health (Brazil) — from zero to the sale — and I'm currently a partner at Wellbe (Brazil).
+  en: `Serial entrepreneur since 2007. I founded startups such as Haefni Health (Spain), was a partner at ACE Ventures (Brazil), co-founded Lincon Health (Brazil), from zero to the sale, and I'm currently a partner at Wellbe (Brazil).
 
 Passionate about innovation and digital business, I've helped companies like Randon, BTG Pactual, Eneva and Andrade & Gutierrez, and startups like Logcomex, Feedz and Auvo innovate and achieve concrete results.
 
@@ -198,11 +198,11 @@ Passionate about innovation and digital business, I've helped companies like Ran
 - **Consulting & mentoring:** mentor and advisor to startups such as Logcomex, Feedz, Melhor Envio, Arpac and Fix It. I've evaluated 300+ startups throughout my career.
 - **Education:** postgraduate coordinator at ESPM and professor at Tera, teaching digital products and metrics.
 - **Academic & writer:** MBA from ESIC Business & Marketing School, PhD in Sports Science, author of several papers and holder of two patents.
-- **Sports background:** nine-time Spanish national wrestling champion and former national team member — high-performance discipline applied to business.
+- **Sports background:** nine-time Spanish national wrestling champion and former national team member, high-performance discipline applied to business.
 
 ## Why The Founder Signal?
 
-The startup world is dynamic and challenging. There's plenty of content out there, but practical, behind-the-scenes discussions — from first steps to growth and exit — are rare.
+The startup world is dynamic and challenging. There's plenty of content out there, but practical, behind-the-scenes discussions, from first steps to growth and exit, are rare.
 
 The Founder Signal exists to talk about strategy clearly and without glamour, connecting entrepreneurs to entrepreneurs. Beyond stories and cases, I bring analyses grounded in studies, data and concrete references.
 
@@ -222,23 +222,23 @@ const QUESTIONS = [
       { t: { en: "I've interviewed 20+ potential customers and can describe their pain precisely", es: "He entrevistado a 20+ clientes potenciales y puedo describir su dolor con precisión", pt: "Entrevistei 20+ clientes potenciais e sei descrever a dor deles com precisão" }, p: 3 }
     ],
     rec: {
-      en: "Talk to more customers. Interview at least 20 people who have the problem before building anything else — patterns in their answers are your roadmap.",
-      es: "Habla con más clientes. Entrevista al menos a 20 personas que tengan el problema antes de construir nada más — los patrones en sus respuestas son tu hoja de ruta.",
-      pt: "Fale com mais clientes. Entreviste pelo menos 20 pessoas que têm o problema antes de construir qualquer outra coisa — os padrões nas respostas são o seu roteiro."
+      en: "Talk to more customers. Interview at least 20 people who have the problem before building anything else, patterns in their answers are your roadmap.",
+      es: "Habla con más clientes. Entrevista al menos a 20 personas que tengan el problema antes de construir nada más, los patrones en sus respuestas son tu hoja de ruta.",
+      pt: "Fale com mais clientes. Entreviste pelo menos 20 pessoas que têm o problema antes de construir qualquer outra coisa, os padrões nas respostas são o seu roteiro."
     }
   },
   {
     q: { en: "Have you validated that people want your solution?", es: "¿Has validado que la gente quiere tu solución?", pt: "Você validou que as pessoas querem a sua solução?" },
     answers: [
-      { t: { en: "Not yet — it's still on paper", es: "Todavía no — sigue en papel", pt: "Ainda não — está no papel" }, p: 0 },
+      { t: { en: "Not yet, it's still on paper", es: "Todavía no, sigue en papel", pt: "Ainda não, está no papel" }, p: 0 },
       { t: { en: "Friends and family say they like it", es: "Amigos y familia dicen que les gusta", pt: "Amigos e família dizem que gostam" }, p: 1 },
       { t: { en: "Strangers signed up to a waitlist or tested a prototype", es: "Desconocidos se apuntaron a una lista de espera o probaron un prototipo", pt: "Desconhecidos entraram numa lista de espera ou testaram um protótipo" }, p: 2 },
       { t: { en: "People already pay or actively use it", es: "La gente ya paga o lo usa activamente", pt: "As pessoas já pagam ou usam ativamente" }, p: 3 }
     ],
     rec: {
-      en: "Run a real validation test: a landing page with sign-ups, pre-orders, or a concierge MVP. Opinions from friends don't count — commitment does.",
-      es: "Haz una prueba de validación real: una landing con registros, preventas o un MVP concierge. Las opiniones de amigos no cuentan — el compromiso sí.",
-      pt: "Faça um teste de validação real: uma landing page com cadastros, pré-vendas ou um MVP concierge. Opinião de amigos não conta — compromisso sim."
+      en: "Run a real validation test: a landing page with sign-ups, pre-orders, or a concierge MVP. Opinions from friends don't count, commitment does.",
+      es: "Haz una prueba de validación real: una landing con registros, preventas o un MVP concierge. Las opiniones de amigos no cuentan, el compromiso sí.",
+      pt: "Faça um teste de validação real: uma landing page com cadastros, pré-vendas ou um MVP concierge. Opinião de amigos não conta, compromisso sim."
     }
   },
   {
@@ -250,9 +250,9 @@ const QUESTIONS = [
       { t: { en: "A stable product that users rely on regularly", es: "Un producto estable que los usuarios usan con regularidad", pt: "Um produto estável que os usuários usam com regularidade" }, p: 3 }
     ],
     rec: {
-      en: "Ship the smallest version that solves the core problem. Cut every feature that isn't essential — you can add them back once real users ask.",
-      es: "Lanza la versión más pequeña que resuelva el problema central. Recorta toda función no esencial — las añades cuando usuarios reales las pidan.",
-      pt: "Lance a menor versão que resolva o problema central. Corte toda funcionalidade não essencial — adicione depois, quando usuários reais pedirem."
+      en: "Ship the smallest version that solves the core problem. Cut every feature that isn't essential, you can add them back once real users ask.",
+      es: "Lanza la versión más pequeña que resuelva el problema central. Recorta toda función no esencial, las añades cuando usuarios reales las pidan.",
+      pt: "Lance a menor versão que resolva o problema central. Corte toda funcionalidade não essencial, adicione depois, quando usuários reais pedirem."
     }
   },
   {
@@ -264,9 +264,9 @@ const QUESTIONS = [
       { t: { en: "Hundreds+ and growing month over month", es: "Cientos o más, creciendo mes a mes", pt: "Centenas ou mais, crescendo mês a mês" }, p: 3 }
     ],
     rec: {
-      en: "Focus on getting your first 10 devoted users manually — DMs, communities, personal outreach. Do things that don't scale before optimizing anything.",
-      es: "Enfócate en conseguir tus primeros 10 usuarios devotos a mano — mensajes directos, comunidades, contacto personal. Haz cosas que no escalan antes de optimizar nada.",
-      pt: "Foque em conseguir seus primeiros 10 usuários fiéis manualmente — mensagens diretas, comunidades, contato pessoal. Faça coisas que não escalam antes de otimizar."
+      en: "Focus on getting your first 10 devoted users manually, DMs, communities, personal outreach. Do things that don't scale before optimizing anything.",
+      es: "Enfócate en conseguir tus primeros 10 usuarios devotos a mano, mensajes directos, comunidades, contacto personal. Haz cosas que no escalan antes de optimizar nada.",
+      pt: "Foque em conseguir seus primeiros 10 usuários fiéis manualmente, mensagens diretas, comunidades, contato pessoal. Faça coisas que não escalam antes de otimizar."
     }
   },
   {
@@ -306,9 +306,9 @@ const QUESTIONS = [
       { t: { en: "Committed full-time team covering product, tech and sales", es: "Equipo comprometido a tiempo completo cubriendo producto, tecnología y ventas", pt: "Time comprometido em tempo integral cobrindo produto, tecnologia e vendas" }, p: 3 }
     ],
     rec: {
-      en: "Close your skill gap: find a complementary co-founder or learn the missing skill enough to ship v1. Solo is fine — stuck is not.",
-      es: "Cierra tu brecha de habilidades: busca un cofundador complementario o aprende lo mínimo de la habilidad faltante para lanzar la v1. Estar solo está bien — estar bloqueado no.",
-      pt: "Feche sua lacuna de habilidades: encontre um cofundador complementar ou aprenda o mínimo da habilidade que falta para lançar a v1. Estar sozinho tudo bem — travado, não."
+      en: "Close your skill gap: find a complementary co-founder or learn the missing skill enough to ship v1. Solo is fine, stuck is not.",
+      es: "Cierra tu brecha de habilidades: busca un cofundador complementario o aprende lo mínimo de la habilidad faltante para lanzar la v1. Estar solo está bien, estar bloqueado no.",
+      pt: "Feche sua lacuna de habilidades: encontre um cofundador complementar ou aprenda o mínimo da habilidade que falta para lançar a v1. Estar sozinho tudo bem, travado, não."
     }
   },
   {
@@ -348,9 +348,9 @@ const QUESTIONS = [
       { t: { en: "12+ months via revenue, savings or funding", es: "12+ meses vía ingresos, ahorros o inversión", pt: "12+ meses via receita, poupança ou investimento" }, p: 3 }
     ],
     rec: {
-      en: "Calculate your runway this week: months you can keep going at current burn. Then plan milestones that fit inside it — with margin.",
-      es: "Calcula tu runway esta semana: los meses que puedes seguir con tu gasto actual. Luego planea hitos que quepan dentro — con margen.",
-      pt: "Calcule seu runway esta semana: quantos meses você aguenta no ritmo atual de gastos. Depois planeje marcos que caibam dentro dele — com margem."
+      en: "Calculate your runway this week: months you can keep going at current burn. Then plan milestones that fit inside it, with margin.",
+      es: "Calcula tu runway esta semana: los meses que puedes seguir con tu gasto actual. Luego planea hitos que quepan dentro, con margen.",
+      pt: "Calcule seu runway esta semana: quantos meses você aguenta no ritmo atual de gastos. Depois planeje marcos que caibam dentro dele, com margem."
     }
   }
 ];
@@ -361,9 +361,9 @@ const STAGES = [
     min: 0, max: 20,
     name: { en: "Idea Stage", es: "Etapa de Idea", pt: "Estágio de Ideia" },
     desc: {
-      en: "You're at the very beginning. That's not bad news — it means your biggest wins are ahead. Right now, learning beats building.",
-      es: "Estás en el comienzo. No es mala noticia — significa que tus mayores logros están por delante. Ahora mismo, aprender vale más que construir.",
-      pt: "Você está no comecinho. Isso não é má notícia — significa que suas maiores vitórias estão à frente. Agora, aprender vale mais que construir."
+      en: "You're at the very beginning. That's not bad news, it means your biggest wins are ahead. Right now, learning beats building.",
+      es: "Estás en el comienzo. No es mala noticia, significa que tus mayores logros están por delante. Ahora mismo, aprender vale más que construir.",
+      pt: "Você está no comecinho. Isso não é má notícia, significa que suas maiores vitórias estão à frente. Agora, aprender vale mais que construir."
     }
   },
   {
@@ -388,9 +388,9 @@ const STAGES = [
     min: 61, max: 80,
     name: { en: "Traction Stage", es: "Etapa de Tracción", pt: "Estágio de Tração" },
     desc: {
-      en: "You have real traction — users, revenue, and momentum. Focus on what's working and fix your weakest link before scaling.",
-      es: "Tienes tracción real — usuarios, ingresos y momentum. Enfócate en lo que funciona y arregla tu eslabón más débil antes de escalar.",
-      pt: "Você tem tração real — usuários, receita e momentum. Foque no que funciona e corrija seu elo mais fraco antes de escalar."
+      en: "You have real traction, users, revenue, and momentum. Focus on what's working and fix your weakest link before scaling.",
+      es: "Tienes tracción real, usuarios, ingresos y momentum. Enfócate en lo que funciona y arregla tu eslabón más débil antes de escalar.",
+      pt: "Você tem tração real, usuários, receita e momentum. Foque no que funciona e corrija seu elo mais fraco antes de escalar."
     }
   },
   {
@@ -532,10 +532,33 @@ $("logo-home").onclick = () => showScreen("home");
 // ===== 8. Artigos =====
 let currentArticle = null;
 
+// Capa visual de cada artigo: gradiente + ícone do tema
+const ART_STYLE = {
+  1: { g: "linear-gradient(135deg,#7c3aed,#3730a3)", // métricas
+       icon: '<line x1="6" y1="20" x2="6" y2="14"/><line x1="12" y1="20" x2="12" y2="8"/><line x1="18" y1="20" x2="18" y2="4"/>' },
+  2: { g: "linear-gradient(135deg,#c026d3,#7c3aed)", // healthtech
+       icon: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.51 4.04 3 5.5l7 7Z"/>' },
+  3: { g: "linear-gradient(135deg,#8b5cf6,#4c1d95)", // investimento
+       icon: '<line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
+  4: { g: "linear-gradient(135deg,#a855f7,#6366f1)", // pivots
+       icon: '<circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/>' },
+  5: { g: "linear-gradient(135deg,#9333ea,#1e3a8a)", // aprendizados
+       icon: '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>' }
+};
+
+function coverSvg(a) {
+  const s = ART_STYLE[a.id] || ART_STYLE[1];
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + s.icon + "</svg>";
+}
+
 function articleButton(a) {
+  const s = ART_STYLE[a.id] || ART_STYLE[1];
   const btn = document.createElement("button");
   btn.className = "pub-item";
-  btn.innerHTML = `<span class="pub-title"></span><span class="pub-date"></span>`;
+  btn.innerHTML = `<span class="pub-thumb"></span><span class="pub-info"><span class="pub-title"></span><span class="pub-date"></span></span><span class="pub-arrow">→</span>`;
+  const thumb = btn.querySelector(".pub-thumb");
+  thumb.style.background = s.g;
+  thumb.innerHTML = coverSvg(a);
   btn.querySelector(".pub-title").textContent = a.title;
   btn.querySelector(".pub-date").textContent = a.date.slice(3) + " · " + a.minutes + " " + UI[lang].minRead;
   btn.onclick = () => openArticle(a, true);
@@ -554,6 +577,10 @@ function renderArticleLists() {
 
 function openArticle(a, navigate) {
   currentArticle = a;
+  const s = ART_STYLE[a.id] || ART_STYLE[1];
+  const cover = $("article-cover");
+  cover.style.background = s.g;
+  cover.innerHTML = coverSvg(a);
   $("article-meta").textContent = a.date + " · " + a.minutes + " " + UI[lang].minRead;
   $("article-title").textContent = a.title;
   $("article-body").innerHTML = mdToHtml(a.body);

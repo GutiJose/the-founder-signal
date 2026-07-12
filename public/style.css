@@ -17,7 +17,8 @@
 
 body {
   font-family: "Inter", system-ui, sans-serif;
-  background: var(--bg);
+  background: radial-gradient(ellipse 90% 45% at 50% -8%, rgba(139, 92, 246, 0.16), transparent), var(--bg);
+  background-attachment: fixed;
   color: var(--text);
   min-height: 100vh;
   display: flex;
@@ -172,8 +173,22 @@ h1 {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 24px;
+  transition: transform 0.2s, border-color 0.2s;
 }
-.feature-icon { font-size: 1.6rem; margin-bottom: 12px; }
+.feature:hover { transform: translateY(-4px); border-color: var(--accent-dark); }
+
+.feature-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.28);
+}
+.feature-icon svg { width: 22px; height: 22px; color: #fff; }
 .feature h3 { font-size: 1rem; margin-bottom: 8px; }
 .feature p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; }
 
@@ -190,28 +205,49 @@ h1 {
 
 .pub-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 16px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px 18px;
+  border-radius: 14px;
+  padding: 14px 18px 14px 14px;
   text-decoration: none;
   color: var(--text);
   text-align: left;
   font-family: inherit;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
   width: 100%;
 }
 .pub-item:hover {
   border-color: var(--accent);
   background: var(--accent-soft);
+  transform: translateX(4px);
 }
-.pub-title { line-height: 1.45; }
-.pub-date { color: var(--text-dim); font-size: 0.8rem; white-space: nowrap; }
+.pub-item:hover .pub-arrow { opacity: 1; transform: translateX(2px); }
+
+.pub-thumb {
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pub-thumb svg { width: 26px; height: 26px; }
+
+.pub-info { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.pub-title { line-height: 1.4; font-weight: 600; }
+.pub-date { color: var(--text-dim); font-size: 0.8rem; }
+
+.pub-arrow {
+  color: var(--accent);
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
 
 /* ---- Páginas (artigos / sobre) ---- */
 .page {
@@ -222,6 +258,17 @@ h1 {
 .page h1 { margin-bottom: 12px; }
 
 .reader .btn-ghost { margin: 0 0 20px; }
+
+.article-cover {
+  width: 100%;
+  height: 200px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.article-cover svg { width: 72px; height: 72px; opacity: 0.95; }
 
 .article-meta { color: var(--accent); font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; }
 
