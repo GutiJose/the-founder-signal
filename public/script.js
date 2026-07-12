@@ -557,8 +557,8 @@ function articleButton(a) {
   btn.className = "pub-item";
   btn.innerHTML = `<span class="pub-thumb"></span><span class="pub-info"><span class="pub-title"></span><span class="pub-date"></span></span><span class="pub-arrow">→</span>`;
   const thumb = btn.querySelector(".pub-thumb");
-  thumb.style.background = s.g;
-  thumb.innerHTML = coverSvg(a);
+  // foto de capa real, com gradiente como fallback caso a imagem não exista
+  thumb.style.background = `url("img/art${a.id}.jpg") center/cover no-repeat, ${s.g}`;
   btn.querySelector(".pub-title").textContent = a.title;
   btn.querySelector(".pub-date").textContent = a.date.slice(3) + " · " + a.minutes + " " + UI[lang].minRead;
   btn.onclick = () => openArticle(a, true);
@@ -579,8 +579,8 @@ function openArticle(a, navigate) {
   currentArticle = a;
   const s = ART_STYLE[a.id] || ART_STYLE[1];
   const cover = $("article-cover");
-  cover.style.background = s.g;
-  cover.innerHTML = coverSvg(a);
+  cover.style.background = `url("img/art${a.id}.jpg") center/cover no-repeat, ${s.g}`;
+  cover.innerHTML = "";
   $("article-meta").textContent = a.date + " · " + a.minutes + " " + UI[lang].minRead;
   $("article-title").textContent = a.title;
   $("article-body").innerHTML = mdToHtml(a.body);
