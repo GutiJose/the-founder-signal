@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="ai.css" />
 </head>
 <body>
 
@@ -17,7 +18,7 @@
     <div class="logo" id="logo-home" title="Home">The Founder <span>Signal</span></div>
     <nav class="mainnav" aria-label="Main">
       <button data-nav="home" class="active" data-i18n="navHome"></button>
-      <button data-nav="quiz-intro" data-i18n="navQuiz"></button>
+      <button data-nav="diagnostics" data-i18n="navQuiz"></button>
       <button data-nav="articles" data-i18n="navArticles"></button>
       <button data-nav="about" data-i18n="navAbout"></button>
     </nav>
@@ -36,7 +37,7 @@
       <h1 data-i18n="heroTitle"></h1>
       <p class="subtitle" data-i18n="heroSubtitle"></p>
       <div class="hero-actions">
-        <button class="btn-primary" data-nav="quiz-intro" data-i18n="ctaQuiz"></button>
+        <button class="btn-primary" data-nav="diagnostics" data-i18n="ctaQuiz"></button>
         <button class="btn-secondary" data-nav="articles" data-i18n="ctaArticles"></button>
       </div>
     </div>
@@ -72,7 +73,45 @@
     </div>
   </section>
 
-  <!-- ===== QUIZ INTRO ===== -->
+  <!-- ===== DIAGNOSTICS CHOOSER ===== -->
+  <section id="diagnostics" class="screen">
+    <div class="hero">
+      <p class="badge" id="diag-badge"></p>
+      <h1 id="diag-title"></h1>
+      <p class="subtitle" id="diag-subtitle"></p>
+    </div>
+    <div class="features diag-grid">
+      <!-- Maturity (existing test) -->
+      <div class="feature diag-card" data-nav="quiz-intro" role="button" tabindex="0">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        </div>
+        <h3 id="diag-mat-title"></h3>
+        <p id="diag-mat-text"></p>
+        <span class="diag-go">→</span>
+      </div>
+      <!-- AI Leverage -->
+      <div class="feature diag-card" id="diag-leverage" role="button" tabindex="0">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <h3 id="diag-lv-title"></h3>
+        <p id="diag-lv-text"></p>
+        <span class="diag-go">→</span>
+      </div>
+      <!-- Disruption Risk -->
+      <div class="feature diag-card" id="diag-disruption" role="button" tabindex="0">
+        <div class="feature-icon risk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        </div>
+        <h3 id="diag-ds-title"></h3>
+        <p id="diag-ds-text"></p>
+        <span class="diag-go">→</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUIZ INTRO (maturity) ===== -->
   <section id="quiz-intro" class="screen">
     <div class="hero">
       <p class="badge" data-i18n="quizBadge"></p>
@@ -83,7 +122,7 @@
     </div>
   </section>
 
-  <!-- ===== QUIZ ===== -->
+  <!-- ===== QUIZ (maturity) ===== -->
   <section id="quiz" class="screen">
     <div class="quiz-box">
       <div class="progress-track"><div id="progress-bar"></div></div>
@@ -94,7 +133,7 @@
     </div>
   </section>
 
-  <!-- ===== RESULT ===== -->
+  <!-- ===== RESULT (maturity) ===== -->
   <section id="result" class="screen">
     <div class="result-box">
       <p class="badge" data-i18n="resultBadge"></p>
@@ -123,6 +162,65 @@
       </div>
 
       <button id="retry-btn" class="btn-ghost" data-i18n="retryBtn"></button>
+    </div>
+  </section>
+
+  <!-- ===== AI INTRO (shared by both AI tests) ===== -->
+  <section id="ai-intro" class="screen">
+    <div class="hero">
+      <p class="badge" id="ai-badge"></p>
+      <h1 id="ai-title"></h1>
+      <p class="subtitle" id="ai-subtitle"></p>
+      <button id="ai-start-btn" class="btn-primary"></button>
+      <p class="hint" id="ai-hint"></p>
+      <p><button id="ai-intro-back" class="btn-ghost"></button></p>
+    </div>
+  </section>
+
+  <!-- ===== AI QUIZ ===== -->
+  <section id="ai-quiz" class="screen">
+    <div class="quiz-box">
+      <div class="progress-track"><div id="ai-progress-bar"></div></div>
+      <p id="ai-question-count" class="question-count"></p>
+      <h2 id="ai-question-text"></h2>
+      <div id="ai-answers" class="answers"></div>
+      <button id="ai-back-btn" class="btn-ghost"></button>
+    </div>
+  </section>
+
+  <!-- ===== AI RESULT ===== -->
+  <section id="ai-result" class="screen">
+    <div class="result-box">
+      <p class="badge" id="ai-score-label"></p>
+      <div class="score-ring">
+        <svg viewBox="0 0 120 120">
+          <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+          <circle id="ai-ring-fill" class="ring-fill" cx="60" cy="60" r="52"></circle>
+        </svg>
+        <div class="score-number"><span id="ai-score-value">0</span><small>/100</small></div>
+      </div>
+      <h2 id="ai-band-name"></h2>
+      <p id="ai-band-desc" class="stage-desc"></p>
+      <p id="ai-score-hint" class="hint"></p>
+
+      <h3 id="ai-rec-title"></h3>
+      <ol id="ai-recs" class="recs"></ol>
+      <p id="ai-sources" class="ai-sources"></p>
+
+      <div class="email-card">
+        <h3 data-i18n="emailTitle"></h3>
+        <p data-i18n="emailText"></p>
+        <form id="ai-email-form">
+          <input type="email" id="ai-email-input" required data-i18n-placeholder="emailPlaceholder" />
+          <button type="submit" class="btn-primary" data-i18n="emailBtn"></button>
+        </form>
+        <p id="ai-email-done" class="email-done hidden" data-i18n="emailDone"></p>
+      </div>
+
+      <div class="rowbtns">
+        <button id="ai-other-btn" class="btn-secondary"></button>
+        <button id="ai-retry-btn" class="btn-ghost"></button>
+      </div>
     </div>
   </section>
 
@@ -175,5 +273,7 @@
 
   <script src="articles.js"></script>
   <script src="script.js"></script>
+  <script src="ai-diagnostic.js"></script>
+  <script src="ai-render.js"></script>
 </body>
 </html>

@@ -1,0 +1,44 @@
+/* ===== The Founder Signal — AI diagnostics add-on styles ===== */
+/* Reuses the site's variables and base classes (style.css). */
+
+/* Diagnostics chooser */
+.diag-grid { padding-bottom: 64px; }
+.diag-card { position: relative; cursor: pointer; }
+.diag-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.diag-card .diag-go {
+  position: absolute;
+  top: 22px;
+  right: 20px;
+  color: var(--accent);
+  font-weight: 700;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.diag-card:hover .diag-go { opacity: 1; transform: translateX(0); }
+
+/* Risk-flavoured icon (amber) for the disruption card + risk band name */
+.feature-icon.risk {
+  background: linear-gradient(135deg, #f59e0b, #b45309);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.28);
+}
+
+/* AI result tweaks */
+#ai-score-hint { margin: -14px 0 26px; }
+
+.ai-sources {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  margin: 4px 0 26px;
+}
+.ai-sources a { color: var(--accent); text-decoration: none; }
+.ai-sources a:hover { text-decoration: underline; }
+
+.rowbtns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
