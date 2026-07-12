@@ -39,13 +39,15 @@ const UI = {
     retryBtn: "Retake the quiz",
     questionOf: "Question {n} of {total}",
     articlesTitle: "Articles",
-    articlesSubtitle: "Originally published in The Founder Signal newsletter. Articles are in Portuguese.",
+    articlesSubtitle: "Originally published in The Founder Signal newsletter.",
     pubAll: "Follow the newsletter on LinkedIn →",
     backToArticles: "← All articles",
     articleFooter: "Originally published in The Founder Signal newsletter:",
     minRead: "min read",
     aboutTagline: "Serial entrepreneur · Exit as co-founder & COO of Lincon Health · Partner at Wellbe",
-    aboutNewsletter: "Newsletter"
+    aboutNewsletter: "Newsletter",
+    pageTitle: "The Founder Signal — Jose Gutiérrez",
+    pageDescription: "Strategies for founders & startups: articles, a diagnostic of your startup's stage and the experience of someone who has built, sold and invested."
   },
   es: {
     navHome: "Inicio",
@@ -83,13 +85,15 @@ const UI = {
     retryBtn: "Rehacer el quiz",
     questionOf: "Pregunta {n} de {total}",
     articlesTitle: "Artículos",
-    articlesSubtitle: "Publicados originalmente en la newsletter The Founder Signal. Los artículos están en portugués.",
+    articlesSubtitle: "Publicados originalmente en la newsletter The Founder Signal.",
     pubAll: "Seguir la newsletter en LinkedIn →",
     backToArticles: "← Todos los artículos",
     articleFooter: "Publicado originalmente en la newsletter The Founder Signal:",
     minRead: "min de lectura",
     aboutTagline: "Emprendedor serial · Exit como cofundador y COO de Lincon Health · Socio en Wellbe",
-    aboutNewsletter: "Newsletter"
+    aboutNewsletter: "Newsletter",
+    pageTitle: "The Founder Signal — Jose Gutiérrez",
+    pageDescription: "Estrategias para emprendedores y startups: artículos, diagnóstico de la etapa de tu startup y la experiencia de quien ya construyó, vendió e invirtió."
   },
   pt: {
     navHome: "Início",
@@ -133,7 +137,9 @@ const UI = {
     articleFooter: "Publicado originalmente na newsletter The Founder Signal:",
     minRead: "min de leitura",
     aboutTagline: "Empreendedor serial · Exit como cofundador e COO da Lincon Health · Sócio na Wellbe",
-    aboutNewsletter: "Newsletter"
+    aboutNewsletter: "Newsletter",
+    pageTitle: "The Founder Signal — Jose Gutiérrez",
+    pageDescription: "Estratégias para empreendedores e startups: artigos, diagnóstico do estágio da sua startup e a experiência de quem já construiu, vendeu e investiu."
   }
 };
 
@@ -465,6 +471,10 @@ function applyTranslations() {
     el.placeholder = UI[lang][el.dataset.i18nPlaceholder];
   });
   document.documentElement.lang = lang;
+  // Titulo da aba e meta description por idioma (SEO / compartilhamento)
+  if (UI[lang].pageTitle) document.title = UI[lang].pageTitle;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && UI[lang].pageDescription) metaDesc.setAttribute("content", UI[lang].pageDescription);
 }
 
 function setLanguage(newLang) {
@@ -532,6 +542,14 @@ $("logo-home").onclick = () => showScreen("home");
 // ===== 8. Artigos =====
 let currentArticle = null;
 
+// Seleciona o texto do artigo no idioma atual.
+// title/body agora sao objetos { pt, en, es }. Faz fallback para PT.
+// Se ainda for uma string (compatibilidade), retorna a propria string.
+function pick(v) {
+  if (v && typeof v === "object") return v[lang] || v.pt || v.en || v.es || "";
+  return v;
+}
+
 // Capa visual de cada artigo: gradiente + ícone do tema
 const ART_STYLE = {
   1: { g: "linear-gradient(135deg,#7c3aed,#3730a3)", // métricas
@@ -559,7 +577,7 @@ function articleButton(a) {
   const thumb = btn.querySelector(".pub-thumb");
   // foto de capa real, com gradiente como fallback caso a imagem não exista
   thumb.style.background = `url("img/art${a.id}.jpg") center/cover no-repeat, ${s.g}`;
-  btn.querySelector(".pub-title").textContent = a.title;
+  btn.querySelector(".pub-title").textContent = pick(a.title);
   btn.querySelector(".pub-date").textContent = a.date.slice(3) + " · " + a.minutes + " " + UI[lang].minRead;
   btn.onclick = () => openArticle(a, true);
   return btn;
@@ -582,8 +600,8 @@ function openArticle(a, navigate) {
   cover.style.background = `url("img/art${a.id}.jpg") center/cover no-repeat, ${s.g}`;
   cover.innerHTML = "";
   $("article-meta").textContent = a.date + " · " + a.minutes + " " + UI[lang].minRead;
-  $("article-title").textContent = a.title;
-  $("article-body").innerHTML = mdToHtml(a.body);
+  $("article-title").textContent = pick(a.title);
+  $("article-body").innerHTML = mdToHtml(pick(a.body));
   if (navigate) showScreen("article");
 }
 
