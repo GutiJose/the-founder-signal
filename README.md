@@ -1,6 +1,6 @@
 # The Founder Signal
 
-Diagnóstico rápido para emprendedores: 10 preguntas → score 0–100 del estágio de tu startup + 3 prioridades de enfoque. Trilingüe (EN/ES/PT).
+Diagnósticos rápidos para emprendedores: mide la madurez de tu startup, tu palanca de IA y tu riesgo de disrupción. Cada uno te da un score de 0 a 100 y prioridades claras. Trilingüe (EN/ES/PT).
 
 ## Ejecutar en local
 
@@ -14,14 +14,17 @@ Abre http://localhost:3000
 ## Estructura
 
 ```
-package.json      → dependencias (solo Express)
-server.js         → sirve /public y guarda leads en leads.json
-public/index.html → landing + quiz + resultado
-public/style.css  → tema oscuro responsive
-public/script.js  → preguntas, traducciones, score y recomendaciones
+package.json          → dependencias (solo Express)
+server.js             → sirve /public y guarda leads en leads.json
+public/index.html     → landing + selector de diagnósticos + quizzes + resultados
+public/style.css      → tema oscuro responsive
+public/ai.css         → estilos de los diagnósticos de IA
+public/script.js      → diagnóstico de madurez (preguntas, traducciones, score)
+public/ai-diagnostic.js → datos y scoring de los diagnósticos de IA (palanca + disrupción)
+public/ai-render.js   → renderizado del selector y de los diagnósticos de IA
 ```
 
-Los emails capturados quedan en `leads.json` en el servidor.
+Hay tres diagnósticos: madurez de la startup, palanca de IA y riesgo de disrupción. Cada uno da un score de 0 a 100 con recomendaciones por score. Los emails capturados quedan en `leads.json` en el servidor.
 
 ## Despliegue (GitHub → Render → GoDaddy)
 
