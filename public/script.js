@@ -480,8 +480,14 @@ function setLanguage(newLang) {
   if ($("article").classList.contains("active") && currentArticle) openArticle(currentArticle, false);
 }
 
-// ===== 7. Navegação entre telas =====
-function showScreen(id) {
+// ===== 7. Navegação entre telas (integrada ao histórico do navegador) =====
+function screenHash(id) {
+  if (id === "home") return "#";
+  if (id === "article" && currentArticle) return "#artigo-" + currentArticle.id;
+  return "#" + id;
+}
+
+function showScreen(id, push = true) {
   document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
   $(id).classList.add("active");
   // marca o item do menu correspondente
@@ -490,7 +496,32 @@ function showScreen(id) {
     b.classList.toggle("active", b.dataset.nav === navId);
   });
   window.scrollTo(0, 0);
+  // registra no histórico para o botão voltar funcionar
+  if (push && screenHash(id) !== location.hash) {
+    history.pushState(null, "", screenHash(id));
+  }
 }
+
+// Abre a tela correspondente ao hash da URL (voltar/avançar do navegador e reload)
+function openFromHash() {
+  const h = (location.hash || "#").slice(1);
+  const art = h.match(/^artigo-(\d+)$/);
+  if (art) {
+    const a = ARTICLES.find((x) => x.id === Number(art[1]));
+    if (a) { openArticle(a, false); showScreen("article", false); return; }
+  }
+  if (h === "quiz" || h === "result") {
+    // estado do quiz não sobrevive a um reload: volta para a introdução
+    if (points.length || h === "quiz" && current > 0) { showScreen(h, false); }
+    else if ($(h).classList.contains("active")) { /* já está lá */ }
+    else { showScreen("quiz-intro", false); }
+    return;
+  }
+  if (["home", "quiz-intro", "articles", "about"].includes(h)) { showScreen(h, false); return; }
+  showScreen("home", false);
+}
+
+window.addEventListener("popstate", openFromHash);
 
 // Qualquer elemento com data-nav muda de tela
 document.querySelectorAll("[data-nav]").forEach((el) => {
@@ -653,3 +684,6 @@ document.querySelectorAll(".lang-switch button").forEach((b) => {
 // Detecta o idioma do navegador na primeira visita
 const browserLang = (navigator.language || "pt").slice(0, 2);
 setLanguage(["en", "es", "pt"].includes(browserLang) ? browserLang : "en");
+
+// Abre a seção indicada na URL (ex.: thefoundersignal.com/#articles)
+openFromHash();
