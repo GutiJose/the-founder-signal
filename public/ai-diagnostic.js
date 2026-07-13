@@ -1,5 +1,5 @@
 // The Founder Signal, AI Diagnostics
-// TWO independent tests, each with its own 0–100 score and recommendations:
+// TWO independent tests, each with its own 0 to 100 score and recommendations:
 //   · AI_TESTS.leverage    → "AI Leverage"    (how much AI works FOR you; higher = better)
 //   · AI_TESTS.disruption  → "Disruption Risk"(how exposed your model is; lower = safer)
 // Trilingual (EN/ES/PT), same conventions as script.js. Each test stands alone.
@@ -27,7 +27,7 @@ const AI_UI = {
     sourcesLabel: "Sources:",
     chooseBadge: "Free 2-minute diagnostics",
     chooseTitle: "Choose your diagnostic",
-    chooseSubtitle: "Three quick tests. Each gives a 0–100 score and recommendations you can act on.",
+    chooseSubtitle: "Three quick tests. Each gives a 0 to 100 score and recommendations you can act on.",
     matTitle: "Startup Maturity",
     matText: "Where your startup stands across problem, product, traction, model and runway."
   },
@@ -39,7 +39,7 @@ const AI_UI = {
     sourcesLabel: "Fuentes:",
     chooseBadge: "Diagnósticos gratis de 2 minutos",
     chooseTitle: "Elige tu diagnóstico",
-    chooseSubtitle: "Tres tests rápidos. Cada uno te da un score de 0–100 y recomendaciones accionables.",
+    chooseSubtitle: "Tres tests rápidos. Cada uno te da un score de 0 a 100 y recomendaciones accionables.",
     matTitle: "Madurez de la Startup",
     matText: "En qué punto está tu startup: problema, producto, tracción, modelo y runway."
   },
@@ -51,7 +51,7 @@ const AI_UI = {
     sourcesLabel: "Fontes:",
     chooseBadge: "Diagnósticos grátis de 2 minutos",
     chooseTitle: "Escolha seu diagnóstico",
-    chooseSubtitle: "Três testes rápidos. Cada um te dá um score de 0–100 e recomendações acionáveis.",
+    chooseSubtitle: "Três testes rápidos. Cada um te dá um score de 0 a 100 e recomendações acionáveis.",
     matTitle: "Maturidade da Startup",
     matText: "Em que ponto sua startup está: problema, produto, tração, modelo e runway."
   }
@@ -84,7 +84,7 @@ const AI_TESTS = {
         navLabel: "AI Leverage",
         badge: "Free 2-minute AI test",
         title: "How much is AI working FOR your startup?",
-        subtitle: "6 questions on how deeply you leverage AI across product and operations. You get a 0–100 AI Leverage score and your highest-impact moves.",
+        subtitle: "6 questions on how deeply you leverage AI across product and operations. You get a 0 to 100 AI Leverage score and your highest-impact moves.",
         startBtn: "Run the AI Leverage test",
         hint: "No sign-up · 6 questions · grounded in market data",
         cardTitle: "AI Leverage",
@@ -98,7 +98,7 @@ const AI_TESTS = {
         navLabel: "Palanca de IA",
         badge: "Test de IA gratis de 2 minutos",
         title: "¿Cuánto trabaja la IA PARA tu startup?",
-        subtitle: "6 preguntas sobre cuánto aprovechas la IA en producto y operaciones. Obtienes un score de Palanca de IA de 0–100 y tus movimientos de mayor impacto.",
+        subtitle: "6 preguntas sobre cuánto aprovechas la IA en producto y operaciones. Obtienes un score de Palanca de IA de 0 a 100 y tus movimientos de mayor impacto.",
         startBtn: "Hacer el test de Palanca de IA",
         hint: "Sin registro · 6 preguntas · basado en datos de mercado",
         cardTitle: "Palanca de IA",
@@ -112,7 +112,7 @@ const AI_TESTS = {
         navLabel: "Alavancagem de IA",
         badge: "Teste de IA grátis de 2 minutos",
         title: "Quanto a IA está trabalhando A FAVOR da sua startup?",
-        subtitle: "6 perguntas sobre quanto você alavanca a IA em produto e operações. Você recebe um score de Alavancagem de IA de 0–100 e suas ações de maior impacto.",
+        subtitle: "6 perguntas sobre quanto você alavanca a IA em produto e operações. Você recebe um score de Alavancagem de IA de 0 a 100 e suas ações de maior impacto.",
         startBtn: "Fazer o teste de Alavancagem de IA",
         hint: "Sem cadastro · 6 perguntas · baseado em dados de mercado",
         cardTitle: "Alavancagem de IA",
@@ -319,7 +319,7 @@ const AI_TESTS = {
         navLabel: "Disruption Risk",
         badge: "Free 2-minute AI test",
         title: "Could AI kill your business model?",
-        subtitle: "6 questions on how exposed your model is to being commoditized by AI. You get a 0–100 Disruption Risk score and how to defend, lower is safer.",
+        subtitle: "6 questions on how exposed your model is to being commoditized by AI. You get a 0 to 100 Disruption Risk score and how to defend, lower is safer.",
         startBtn: "Run the Disruption Risk test",
         hint: "No sign-up · 6 questions · grounded in market data",
         cardTitle: "Disruption Risk",
@@ -333,7 +333,7 @@ const AI_TESTS = {
         navLabel: "Riesgo de disrupción",
         badge: "Test de IA gratis de 2 minutos",
         title: "¿Puede la IA matar tu modelo de negocio?",
-        subtitle: "6 preguntas sobre qué tan expuesto está tu modelo a ser comoditizado por la IA. Obtienes un score de Riesgo de disrupción de 0–100 y cómo defenderte, más bajo es más seguro.",
+        subtitle: "6 preguntas sobre qué tan expuesto está tu modelo a ser comoditizado por la IA. Obtienes un score de Riesgo de disrupción de 0 a 100 y cómo defenderte, más bajo es más seguro.",
         startBtn: "Hacer el test de Riesgo de disrupción",
         hint: "Sin registro · 6 preguntas · basado en datos de mercado",
         cardTitle: "Riesgo de disrupción",
@@ -347,7 +347,7 @@ const AI_TESTS = {
         navLabel: "Risco de disrupção",
         badge: "Teste de IA grátis de 2 minutos",
         title: "A IA pode matar seu modelo de negócio?",
-        subtitle: "6 perguntas sobre quão exposto seu modelo está a ser comoditizado pela IA. Você recebe um score de Risco de disrupção de 0–100 e como se defender, menor é mais seguro.",
+        subtitle: "6 perguntas sobre quão exposto seu modelo está a ser comoditizado pela IA. Você recebe um score de Risco de disrupção de 0 a 100 e como se defender, menor é mais seguro.",
         startBtn: "Fazer o teste de Risco de disrupção",
         hint: "Sem cadastro · 6 perguntas · baseado em dados de mercado",
         cardTitle: "Risco de disrupção",
