@@ -35,6 +35,11 @@ const UI = {
     emailPlaceholder: "you@startup.com",
     emailBtn: "Send me resources",
     emailDone: "✓ You're in! Check your inbox soon.",
+    gateBadge: "One last step",
+    gateTitle: "Where should we send your score?",
+    gateText: "Enter your email and your result appears instantly. No spam, unsubscribe whenever you want.",
+    gateBtn: "Reveal my score",
+    gateHint: "We only use it to send your result and the occasional resource.",
     newsletterLink: "Or follow The Founder Signal newsletter on LinkedIn →",
     retryBtn: "Retake the quiz",
     questionOf: "Question {n} of {total}",
@@ -81,6 +86,11 @@ const UI = {
     emailPlaceholder: "tu@startup.com",
     emailBtn: "Enviarme recursos",
     emailDone: "✓ ¡Listo! Pronto recibirás noticias.",
+    gateBadge: "Un último paso",
+    gateTitle: "¿A dónde enviamos tu score?",
+    gateText: "Escribe tu email y tu resultado aparece al instante. Sin spam, te das de baja cuando quieras.",
+    gateBtn: "Ver mi score",
+    gateHint: "Solo lo usamos para enviarte tu resultado y algún recurso ocasional.",
     newsletterLink: "O sigue la newsletter The Founder Signal en LinkedIn →",
     retryBtn: "Rehacer el quiz",
     questionOf: "Pregunta {n} de {total}",
@@ -127,6 +137,11 @@ const UI = {
     emailPlaceholder: "voce@startup.com",
     emailBtn: "Quero os recursos",
     emailDone: "✓ Pronto! Em breve você recebe novidades.",
+    gateBadge: "Falta um passo",
+    gateTitle: "Para onde enviamos seu score?",
+    gateText: "Digite seu email e seu resultado aparece na hora. Sem spam, cancele quando quiser.",
+    gateBtn: "Ver meu score",
+    gateHint: "Usamos apenas para enviar seu resultado e algum recurso ocasional.",
     newsletterLink: "Ou siga a newsletter The Founder Signal no LinkedIn →",
     retryBtn: "Refazer o quiz",
     questionOf: "Pergunta {n} de {total}",
@@ -628,7 +643,7 @@ function renderQuestion() {
     btn.onclick = () => {
       points[current] = a.p;
       current++;
-      current < QUESTIONS.length ? renderQuestion() : renderResult(true);
+      current < QUESTIONS.length ? renderQuestion() : startMaturityGate();
     };
     answersDiv.appendChild(btn);
   });
@@ -672,26 +687,44 @@ function renderResult(recalculate) {
   });
 }
 
-// ===== 12. Captura de email (opcional) =====
-$("email-form").addEventListener("submit", async (e) => {
+// ===== 12. Gate de email (obrigatório para ver o score) =====
+// Compartilhado pelos três diagnósticos: os testes de IA chamam window.requireEmail.
+let gateMeta = null;
+let gateOnSuccess = null;
+
+function requireEmail(meta, onSuccess) {
+  gateMeta = meta;
+  gateOnSuccess = onSuccess;
+  $("gate-input").value = "";
+  showScreen("gate");
+  setTimeout(() => { try { $("gate-input").focus(); } catch (_) {} }, 60);
+}
+window.requireEmail = requireEmail;
+
+// Fluxo de maturidade: calcula o score, mas só revela após o email.
+function startMaturityGate() {
+  const total = points.reduce((sum, p) => sum + p, 0);
+  finalScore = Math.round((total / (QUESTIONS.length * 3)) * 100);
+  finalStage = STAGES.find((s) => finalScore >= s.min && finalScore <= s.max);
+  requireEmail(
+    { quiz: "maturity", score: finalScore, stage: finalStage ? finalStage.name.en : "" },
+    () => renderResult(false)
+  );
+}
+
+$("gate-form").addEventListener("submit", async (e) => {
   e.preventDefault();
-  const email = $("email-input").value;
+  const email = $("gate-input").value;
   try {
     await fetch("/api/lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email,
-        score: finalScore,
-        stage: finalStage ? finalStage.name.en : "",
-        language: lang
-      })
+      body: JSON.stringify(Object.assign({ email, language: lang }, gateMeta || {}))
     });
-  } catch {
-    // Se o servidor não responder, não bloqueamos a experiência
+  } catch (_) {
+    // Se o servidor não responder, não bloqueamos a revelação do score
   }
-  $("email-form").classList.add("hidden");
-  $("email-done").classList.remove("hidden");
+  if (typeof gateOnSuccess === "function") gateOnSuccess();
 });
 
 // ===== 13. Eventos do quiz =====
@@ -714,9 +747,6 @@ $("back-btn").onclick = () => {
 $("retry-btn").onclick = () => {
   current = 0;
   points = [];
-  $("email-form").classList.remove("hidden");
-  $("email-done").classList.add("hidden");
-  $("email-input").value = "";
   $("ring-fill").style.strokeDashoffset = 326.7;
   showScreen("quiz");
   renderQuestion();

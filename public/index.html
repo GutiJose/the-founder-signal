@@ -150,16 +150,7 @@
       <h3 data-i18n="focusTitle"></h3>
       <ol id="recommendations" class="recs"></ol>
 
-      <div class="email-card">
-        <h3 data-i18n="emailTitle"></h3>
-        <p data-i18n="emailText"></p>
-        <form id="email-form">
-          <input type="email" id="email-input" required data-i18n-placeholder="emailPlaceholder" />
-          <button type="submit" class="btn-primary" data-i18n="emailBtn"></button>
-        </form>
-        <p id="email-done" class="email-done hidden" data-i18n="emailDone"></p>
-        <a class="newsletter-link" href="https://www.linkedin.com/newsletters/the-founder-signal-7312236537943879680/" target="_blank" rel="noopener" data-i18n="newsletterLink"></a>
-      </div>
+      <a class="newsletter-link" href="https://www.linkedin.com/newsletters/the-founder-signal-7312236537943879680/" target="_blank" rel="noopener" data-i18n="newsletterLink"></a>
 
       <button id="retry-btn" class="btn-ghost" data-i18n="retryBtn"></button>
     </div>
@@ -207,20 +198,24 @@
       <ol id="ai-recs" class="recs"></ol>
       <p id="ai-sources" class="ai-sources"></p>
 
-      <div class="email-card">
-        <h3 data-i18n="emailTitle"></h3>
-        <p data-i18n="emailText"></p>
-        <form id="ai-email-form">
-          <input type="email" id="ai-email-input" required data-i18n-placeholder="emailPlaceholder" />
-          <button type="submit" class="btn-primary" data-i18n="emailBtn"></button>
-        </form>
-        <p id="ai-email-done" class="email-done hidden" data-i18n="emailDone"></p>
-      </div>
-
       <div class="rowbtns">
         <button id="ai-other-btn" class="btn-secondary"></button>
         <button id="ai-retry-btn" class="btn-ghost"></button>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== EMAIL GATE (shared, required before any score) ===== -->
+  <section id="gate" class="screen">
+    <div class="hero">
+      <p class="badge" data-i18n="gateBadge"></p>
+      <h1 data-i18n="gateTitle"></h1>
+      <p class="subtitle" data-i18n="gateText"></p>
+      <form id="gate-form" class="gate-form">
+        <input type="email" id="gate-input" required data-i18n-placeholder="emailPlaceholder" />
+        <button type="submit" class="btn-primary" data-i18n="gateBtn"></button>
+      </form>
+      <p class="hint" data-i18n="gateHint"></p>
     </div>
   </section>
 

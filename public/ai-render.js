@@ -58,7 +58,7 @@
       b.onclick = () => {
         pts[cur] = a.p;
         cur++;
-        cur < qs.length ? renderQuestion() : renderResult(true);
+        cur < qs.length ? renderQuestion() : startAIGate();
       };
       box.appendChild(b);
     });
@@ -113,10 +113,16 @@
     $("ai-other-btn").onclick = () => startAITest(otherKey);
     $("ai-retry-btn").textContent = t.retryBtn;
 
-    // reset optional lead form (static labels come from data-i18n via applyTranslations)
-    const done = $("ai-email-done"), form = $("ai-email-form");
-    if (form) { form.classList.remove("hidden"); form.reset && form.reset(); }
-    if (done) done.classList.add("hidden");
+  }
+
+  // ---- Email gate before revealing an AI score ----
+  // Score is computed here (for the lead payload) but only shown after email.
+  function startAIGate() {
+    lastResult = computeTestResult(testKey, pts, lang);
+    window.requireEmail(
+      { quiz: testKey, score: lastResult.score, stage: lastResult.band.name.en },
+      () => renderResult(false)
+    );
   }
 
   // ---- Public entry point (called from chooser cards / nav) ----
@@ -140,34 +146,13 @@
       else { renderIntro(); showScreen("ai-intro"); }
     };
     $("ai-retry-btn").onclick = () => { cur = 0; pts = []; renderQuestion(); showScreen("ai-quiz"); };
-
-    // optional lead capture (reuses your /api/lead)
-    const form = $("ai-email-form");
-    if (form) form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      try {
-        await fetch("/api/lead", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: $("ai-email-input").value,
-            quiz: testKey,
-            score: lastResult ? lastResult.score : "",
-            stage: lastResult ? lastResult.band.name.en : "",
-            language: lang
-          })
-        });
-      } catch (_) { /* don't block UX */ }
-      form.classList.add("hidden");
-      $("ai-email-done").classList.remove("hidden");
-    });
   }
 
   // ---- Keep the "Diagnóstico" nav highlighted on all diagnostic screens ----
   const _showScreen = window.showScreen;
   window.showScreen = function (id, push) {
     _showScreen(id, push);
-    const diag = ["diagnostics", "ai-intro", "ai-quiz", "ai-result", "quiz-intro", "quiz", "result"];
+    const diag = ["diagnostics", "ai-intro", "ai-quiz", "ai-result", "gate", "quiz-intro", "quiz", "result"];
     if (diag.includes(id)) {
       document.querySelectorAll(".mainnav button").forEach((b) =>
         b.classList.toggle("active", b.dataset.nav === "diagnostics"));
@@ -178,7 +163,7 @@
   window.addEventListener("popstate", () => {
     const h = (location.hash || "#").slice(1);
     if (h === "diagnostics" || h === "ai-intro") showScreen(h, false);
-    else if (h === "ai-quiz" || h === "ai-result") showScreen("diagnostics", false); // quiz state doesn't survive reload
+    else if (h === "ai-quiz" || h === "ai-result" || h === "gate") showScreen("diagnostics", false); // quiz state doesn't survive reload
   });
 
   // ---- Re-render on language switch (runs alongside setLanguage) ----
